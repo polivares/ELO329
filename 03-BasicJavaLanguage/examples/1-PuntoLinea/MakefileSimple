@@ -1,0 +1,16 @@
+default: LineaTest.class
+
+LineaTest.class: LineaTest.java Linea.class Punto.class
+	javac -g LineaTest.java
+
+Linea.class: Linea.java Punto.class
+	javac -g Linea.java
+
+Punto.class: Punto.java
+	javac -g Punto.java
+
+run: 
+	java LineaTest
+
+clean:
+	$(RM) *.class
