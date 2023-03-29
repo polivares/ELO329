@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ProjectModuleManager">
+    <modules>
+      <module fileurl="file://$PROJECT_DIR$/01-OOP_Concepts/01-OOP_Concepts.iml" filepath="$PROJECT_DIR$/01-OOP_Concepts/01-OOP_Concepts.iml" />
+      <module fileurl="file://$PROJECT_DIR$/02-Java_Introduction/02-Java_Introduction.iml" filepath="$PROJECT_DIR$/02-Java_Introduction/02-Java_Introduction.iml" />
+      <module fileurl="file://$PROJECT_DIR$/03-BasicJavaLanguage/03-BasicJavaLanguage.iml" filepath="$PROJECT_DIR$/03-BasicJavaLanguage/03-BasicJavaLanguage.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/ELO329-repo.iml" filepath="$PROJECT_DIR$/.idea/ELO329-repo.iml" />
+    </modules>
+  </component>
+</project>
