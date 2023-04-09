@@ -32,7 +32,7 @@ class Employee implements Cloneable
       try  // ELO329: we will see this subject in a couple of classes.
       {
          // call Object.clone()
-         Employee cloned = (Employee)super.clone(); 
+         Employee cloned = (Employee)super.clone(); // Hasta aquí es la copia baja (o literal)
 
          // clone mutable fields
          cloned.hireDay = (Date)hireDay.clone();

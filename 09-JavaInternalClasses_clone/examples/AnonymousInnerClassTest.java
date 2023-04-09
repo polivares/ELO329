@@ -40,8 +40,7 @@ class BankAccount
    */
    public void start(final double rate)
    {
-      ActionListener adder = new
-         ActionListener()
+      ActionListener adder = new ActionListener()
          {  
             public void actionPerformed(ActionEvent event)
             {  
