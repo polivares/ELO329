@@ -95,8 +95,17 @@ class Manager extends Employee
    public void setBonus(double b)
    {  
       bonus = b;
+      super.getName()
    }
 
    private double bonus;
 }
+
+
+
+
+
+
+
+
 
