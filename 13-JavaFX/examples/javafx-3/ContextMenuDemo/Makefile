@@ -1,7 +1,7 @@
 JFLAGS = -g
 JC = javac
 JVM= java
-JavaFX = --module-path /Users/agustin/tools/javafx-sdk-17.0.2/lib --add-modules javafx.controls,javafx.media
+JavaFX = --module-path /home/polivares/Downloads/javafx-sdk-17.0.6/lib --add-modules javafx.controls,javafx.media
 FILE=
 .SUFFIXES: .java .class
 .java.class:
