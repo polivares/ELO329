@@ -1,4 +1,0 @@
-abstract public interface estudiante {
-
-    
-}
