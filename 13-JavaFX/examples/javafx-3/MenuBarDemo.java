@@ -17,6 +17,8 @@ public class MenuBarDemo extends Application {
    private TextField tfNumber2 = new TextField();
    private TextField tfResult = new TextField();
    public void start(Stage primaryStage) {
+      // Toda esta sección es simplemente la agregación de elementos gráficos
+      // de tipo menú
       MenuBar menuBar = new MenuBar();
       Menu menuOperation = new Menu("Operation");
       Menu menuExit = new Menu("Exit");
@@ -28,6 +30,7 @@ public class MenuBarDemo extends Application {
       menuExit.getItems().add(menuItemClose);
       menuItemAdd.setAccelerator(KeyCombination.keyCombination("Ctrl+A"));
       menuItemSubtract.setAccelerator(KeyCombination.keyCombination("Ctrl+S"));
+
       HBox hBox1 = new HBox(5);
       hBox1.getChildren().addAll(new Label("Number 1:"), tfNumber1,
               new Label("Number 2:"), tfNumber2, new Label("Result:"),

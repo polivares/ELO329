@@ -20,7 +20,7 @@ public class Account     // class name
     }
 /**
  * Retrieves the account balance.  
- * @return the <tt>balance</tt>
+ * @return the balance
  */
     public double balance()
     {    return(acct_bal);   }
