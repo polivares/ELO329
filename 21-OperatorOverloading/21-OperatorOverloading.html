@@ -1,0 +1,144 @@
+<p style="text-align: left;">
+    C++ Tutorial: 4.2, Overloading operators
+</p>
+<!--captut-->
+<center></center>
+<p><span size="5" style="font-size: x-large;"><b>Sobrecarga de Operadores: </b>material adaptado de </span><small><big><a href="http://www.cplusplus.com/doc/tutorial"><span size="5" style="font-size: x-large;"> The cplusplus.com tutorial</span></a></big><br> </small></p>
+<p>C++ permite usar <span style="font-weight: bold;">operadores estándares</span> como +,-, y * con operandos objetos. De este modo podemos hacer operaciones con instancias de una clase igual como con los tipos fundamentales. Por ejemplo:</p>
+<blockquote><tt> int a, b, c;<br> a = b + c;<br> </tt></blockquote>
+<p>es perfectamente válido, dado que las variables son todas tipos fundamentales. Sin embargo, en C no podemos efectuar la operación siguiente (de hecho es incorrecto):</p>
+<blockquote><tt><span color="red" style="color: red;"> struct { char product [50]; float price; } a, b, c;<br> a = b + c;   /ERROR en lenguaje C<br> </span></tt></blockquote>
+<p>Lo que conduce a error es el uso del operador adición, que en principio no es válido entre tipos no fundamentales.</p>
+<p>En C++, podemos hacer que objetos, instancias de tipos compuestos, como los previos pueden aceptar operadores que de otra manera no serían aceptados. Incluso es posible redefinir el efecto de operadores ya permitidos. La lista de operadores que pueden
+    ser sobrecargados es:</p>
+<blockquote>
+    <pre>+    -    *    /    =    &lt;    &gt;    +=   -=   *=   /=   &lt;&lt;   &gt;&gt;<br>&lt;&lt;=  &gt;&gt;=  ==   !=   &lt;=   &gt;=   ++   --   %    &amp;    ^    !    |<br>~    &amp;=   ^=   |=   &amp;&amp;   ||   %=   []   ()   new  delete</pre>
+</blockquote>
+<p>Para sobrecargar un operador, sólo necesitamos escribir una función miembro en la clase cuyo nombre es <tt><b>operator</b></tt> seguido por el signo del operador que queremos sobrecargar, siguiendo este prototipo:</p>
+<blockquote><tt> <i>type</i> <b>operator</b> <i>sign</i> <b>(</b><i>parameters</i><b>);</b> </tt></blockquote>
+<p>Aquí tenemos un ejemplo que incluye el operador <tt><b>+</b></tt>. Vamos a sumar vectores bidimensionales <tt><b>a(3,1)</b></tt> y <tt><b>b(1,2)</b></tt>. En este caso el resultado será <tt><b>(3+1,1+2) = (4,3)</b></tt>.</p>
+<p></p>
+<center>
+    <table style="width: 100%;" cellspacing="5" cellpadding="5">
+        <tbody>
+            <tr>
+                <td width="50%" valign="top" bgcolor="#ffffbf">
+                    <pre><i>// vectors: overloading operators example</i>
+#include &lt;iostream.h&gt;
+
+class CVector {  // Definición de la clase 
+  public:
+    int x,y;
+    CVector () {};  // debemos incluirlo si implementamos otro contructor
+    CVector (int,int);
+    CVector operator + (CVector);
+};
+
+CVector::CVector (int a, int b) {  // implementación de constructor
+  x = a;
+  y = b;
+}
+
+CVector CVector::operator+ (CVector param) {  // implementación de sobrecarga de operador +
+  CVector temp;
+  temp.x = x + param.x;
+  temp.y = y + param.y;
+  return (temp);
+}
+
+int main () {
+  CVector a (3,1);
+  CVector b (1,2);
+  CVector c;
+  c = a + b;
+  cout &lt;&lt; c.x &lt;&lt; "," &lt;&lt; c.y;
+  return 0;
+}
+      </pre>
+                </td>
+                <td width="50%" valign="top" bgcolor="silver"><tt> <b>4,3</b> </tt></td>
+            </tr>
+        </tbody>
+    </table>
+</center>
+<p>No se confunda por el hecho de ver muchos <tt><b>CVector</b></tt>. Uno es el nombre de la clase <tt><b>CVector,</b></tt> otros son nombres de métodos (constructor y destructor - no en este caso ), y otros son valores retornados en métodos. </p>
+<blockquote>
+    <pre>CVector (int, int);            </pre>
+    <span color="green" style="color: green;"><i>// function name CVector (constructor)</i></span>
+    <pre>CVector operator+ (CVector);   </pre>
+    <span color="green" style="color: green;"><i>// function operator+ that <span style="text-decoration: underline;">returns</span> CVector type</i>
+    </span>
+</blockquote>
+<p>La función <tt><b>operator+</b></tt> de la clase <tt><b>CVector</b></tt> es la encargada de sobrecargar el operador aritmético <tt><b>+</b></tt>. Hay dos formas para llamar esta operación:</p>
+<blockquote><tt>c = a + b;   // notar el orden usado para operadores infijos <br> c = a.operator+(b);  // esta es la forma en que el compilador implementa la línea previa.<br> </tt></blockquote>
+<p>Igual como una clase incluye por omisión un constructor de copia y constructor vacío (sin argumentos), ésta también incluye un definición por omisión para el <b>operador de asignación (<tt>=</tt>)</b> entre dos instancias de la misma clase. Este método
+    copia el contenido bit a bit de los miembros no estáticos del objeto de la derecha al de la izquierda. Por supuesto, podemos redefinir este operador con cualquier otra funcionalidad que se desee; por jemplo, copia en profundidad cuando se tienen atributos
+    punteros.
+</p>
+<p>La sobrecarga de operadores no nos obliga a seguir el mismo significado matemático o usual del operador, aún así es recomendado (por consistencia e interpretación intuitiva). Por ejemplo, no es lógico usar el operador <tt><b>+</b></tt> para restar dos
+    objetos, aún cuando esto sea posible.</p>
+<p>El prototipo de la función <tt><b>operator+</b></tt> puede resultar obvio, pero para otros operadores pueden no serlo. Aquí se tiene una tabla que resume cómo declarar las diferentes funciones de sobrecarga (reemplace <tt>@</tt> por el operador en cada
+    claso):
+</p>
+<blockquote>
+    <table border="1">
+        <tbody>
+            <tr>
+                <td style="text-align: center;" bgcolor="silver">Expression</td>
+                <td style="text-align: center;" bgcolor="silver">Comentario</td>
+                <td style="text-align: center;" bgcolor="silver">Operator (<tt>@</tt>)</td>
+                <td style="text-align: center;" bgcolor="silver"><b>Function member</b></td>
+                <td style="text-align: center;" bgcolor="silver"><b>Global function</b></td>
+            </tr>
+            <tr>
+                <td style="text-align: center;" width="20%"><tt>@a</tt></td>
+                <td style="vertical-align: top; text-align: center;">prefijo</td>
+                <td style="text-align: center;" width="20%"><tt>+ - * &amp; ! ~ ++ --</tt></td>
+                <td style="text-align: center;" width="30%"><tt>A::operator@()</tt></td>
+                <td style="text-align: center;" width="30%"><tt>operator@(A)</tt></td>
+            </tr>
+            <tr>
+                <td style="text-align: center;" width="20%"><tt>a@</tt></td>
+                <td style="vertical-align: top; text-align: center;">postfijo</td>
+                <td style="text-align: center;" width="20%"><tt>++ --</tt></td>
+                <td style="text-align: center;" width="30%"><tt>A::operator@(int)</tt></td>
+                <td style="text-align: center;" width="30%"><tt>operator@(A, int)</tt></td>
+            </tr>
+            <tr>
+                <td style="text-align: center;" width="20%"><tt>a@b</tt></td>
+                <td style="vertical-align: top; text-align: center;">infijo</td>
+                <td style="text-align: center;" width="20%"><tt>+ - * / % ^ &amp; | &lt; &gt; == != &lt;= &gt;= &lt;&lt; &gt;&gt; &amp;&amp; || ,</tt></td>
+                <td style="text-align: center;" width="30%"><tt>A::operator@(B)</tt></td>
+                <td style="text-align: center;" width="30%"><tt>operator@(A, B)</tt></td>
+            </tr>
+            <tr>
+                <td style="text-align: center;" width="20%"><tt>a@b</tt></td>
+                <td style="vertical-align: top; text-align: center;">infijo</td>
+                <td style="text-align: center;" width="20%"><tt>= += -= *= /= %= ^= &amp;= |= &lt;&lt;= &gt;&gt;= []</tt></td>
+                <td style="text-align: center;" width="30%"><tt>A::operator@(B)</tt></td>
+                <td style="text-align: center;" width="30%"><tt>-</tt></td>
+            </tr>
+            <tr>
+                <td style="text-align: center;" width="20%"><tt>a(b, c...)</tt></td>
+                <td style="vertical-align: top; text-align: center;">postfijo</td>
+                <td style="text-align: center;" width="20%"><tt>()</tt></td>
+                <td style="text-align: center;" width="30%"><tt>A::operator()(B, C...)</tt></td>
+                <td style="text-align: center;" width="30%"><tt>-</tt></td>
+            </tr>
+            <tr>
+                <td style="text-align: center;" width="20%"><tt>a-&gt;b</tt></td>
+                <td style="vertical-align: top; text-align: center;">infijo</td>
+                <td style="text-align: center;" width="20%"><tt>-&gt;</tt></td>
+                <td style="text-align: center;" width="30%"><tt>A::operator-&gt;(B)</tt></td>
+                <td style="text-align: center;" width="30%"><tt>-</tt></td>
+            </tr>
+        </tbody>
+    </table>
+    <tt><b>a</b></tt> es un objeto o instancia de clase <span style="font-weight: bold;">A</span>, <tt><b>b</b></tt> es una instancia de clase <span style="font-weight: bold;">B</span> y <tt><b>c</b></tt> es instancia de calse <span style="font-family: mon; font-weight: bold;">C</span>.
+    <span style="font-weight: bold;">B</span> y <span style="font-weight: bold;">C</span> podrían ser tipos básicos.</blockquote>
+<p>Se puede ver en esta tabla que algunos operadores se pueden sobrecargar de dos formas: como <i>funciones miembro o método</i> de la clase del operando del lado izquierdo (excepto caso @a) o como <i>funciones globales</i>. <br> La columna de la derecha
+    (función global) se explica porque es deseable hacer cosas como:<br> cout &lt;&lt; miObjeto;<br> como no podemos cambiar la clase ostream, de la cual cout es instancia, no podemos agregar en ella el método <br> ostream operator&lt;&lt; (MiClase miObjeto)
+    {...}
+    <br> Para permitir la línea de código previa, C++ permite la sobre carga de algunos operadores vía una función global (es la columna de la derecha). Hay otras situaciones donde la sobrecarga se hace vía función global, por ejemplo, en<br> Vector v2
+    = 3*v1; // donde v1 es un vector. No es posible implementar esta operación a través de una sobrecarga de * en clase Vector. <br> Al optar por sobrecarga vía función global, es muy frecuente necesitar acceder a atributos privados o protegidos de la
+    clase (<tt>private</tt> o <tt>protected</tt>). Por esto y otras situaciones, C++ permite en una clase declarar como amiga funciones globales (<tt style="font-weight: bold;"><i>friend</i></tt>, se verá más adelante).</p> 
