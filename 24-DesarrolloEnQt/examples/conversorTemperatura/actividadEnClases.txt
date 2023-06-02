@@ -1,0 +1,14 @@
+Actividad en clases: Elementos gráficos, signals y slots en Qt
+==============================================================
+
+Crear un conversor de temperatura Celsius-Fahrenheit.
+Debe crear un programa con dos diales interconectados a través de una clase conversora. La posición de cada dial representa la temperatura en C° o en F° según corresponda, por lo que el movimiento de un dial debe verse reflejado en su respectivo movimiento y temperatura en el otro dial y viceversa.
+Además, cada dial tiene conectado un lcd el cual muestra la temperatura reflajada.
+El programa debe contener:
+- Una interfaz gráfica con dos QDial y dos QLCDNumber (uno para celsius y uno para fahrenheit), cada uno de los cuales muestra un número asociado a la posición del dial. 
+- Una clase TempConverter que será la encargada de realizar las conversiones de temperatura.
+- Conexión de los distintos signals y slots entre los elementos gráficos y la clase conversora de temperatura. Estas conexiones se deben dar en la implementación de la ventana principal (QMainWindow, QDialog o QWidget según se haya escogido)
+
+Tome como referencia el siguiente diagrama de conexión entre signals y slots propuesto para solucionar el problema.
+<diagramaSlots.png> 
+
