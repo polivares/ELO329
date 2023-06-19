@@ -28,3 +28,12 @@ int main() {
     }
     return 0;
 }
+
+
+
+
+
+
+template <typename T> void display(const T &val){
+    std::cout << val;
+}
