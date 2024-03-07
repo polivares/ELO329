@@ -4,4 +4,4 @@ out/
 .idea/
 commands
 .vscode/
-.drawio
+*.drawio
