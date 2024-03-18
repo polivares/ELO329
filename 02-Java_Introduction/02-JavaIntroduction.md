@@ -3,7 +3,7 @@ marp: true
 ---
 # ELO329 - Diseño y Programación Orientados a Objetos
 ## Introducción a Java
-Agustín Gonzalez
+Agustín González
 Patricio Olivares
 
 ---
