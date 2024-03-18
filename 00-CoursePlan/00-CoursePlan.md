@@ -3,7 +3,7 @@ marp: true
 ---
 # ELO329 - Diseño y Programación Orientados a Objetos
 ## Plan del curso
-Agustín Gonzalez
+Agustín González
 Patricio Olivares
 
 ---
@@ -89,5 +89,5 @@ infracción a alguna de estas reglas y dependiendo la gravedad de la falta, la C
 ---
 # ELO329 - Diseño y Programación Orientados a Objetos
 ## Plan del curso
-Agustín Gonzalez
+Agustín González
 Patricio Olivares
