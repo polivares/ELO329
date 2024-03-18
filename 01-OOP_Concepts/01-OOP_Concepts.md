@@ -3,7 +3,7 @@ marp: true
 ---
 # ELO329 - Diseño y Programación Orientados a Objetos
 ## Plan del curso
-Agustín Gonzalez
+Agustín González
 Patricio Olivares
 
 ---
@@ -86,7 +86,7 @@ Salvo excepciones, la interacción con el objeto solo debería ser vía los serv
 ```java
     p.x(); /* para obtener su coordenada */
     p.getDistance(); /* distancia al origen del punto p */
-    p.getDistance(); /* distancia entre p y otro punto p2 */
+    p.getDistance(p2); /* distancia entre p y otro punto p2 */
 ```
 
 ---
