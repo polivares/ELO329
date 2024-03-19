@@ -10,6 +10,7 @@ class Employee
       Constructores pueden ser llamados desde otros constructores 
       usando la palabra reserva this.
    */
+  
     public Employee(String n, double s, 
 		    int year, int month, int day)
     {  
