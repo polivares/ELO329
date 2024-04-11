@@ -32,9 +32,9 @@ El modelo para una mascota virtual en esta tarea contiene las siguientes caracte
 - **Felicidad**, la cual toma valores entre 0 y 100 puntos
 
 Algunos indicadores de la mascota pueden verse afectados entre sí:
-- Si `salud`<=10 puntos, la `felicidad` bajará 20 puntos por cada incremento de tiempo de simulación.
-- Si `salud`<=50 y 5 < `edad` <= 10, la `felicidad` bajará 20 puntos y la `energía` bajará 10 puntos por cada incremento de tiempo de simulación.
-- Si `salud`<=50 y `edad`>10, la `felicidad` bajará 30 puntos y la `energía` bajará 20 puntos por cada incremento de tiempo de simulación.
+- Si `edad` <= 5 y `salud`<=10 puntos, la `felicidad` bajará 20 puntos por cada incremento de tiempo de simulación.
+- Si  5 < `edad` <= 10 y `salud`<=50, la `felicidad` bajará 20 puntos y la `energía` bajará 10 puntos por cada incremento de tiempo de simulación.
+- Si `edad`>10 y `salud`<=50, la `felicidad` bajará 30 puntos y la `energía` bajará 20 puntos por cada incremento de tiempo de simulación.
 
 En base a los indicadores de edad, salud, energía y felicidad, es posible determinar el **estado** en el que se encuentra la mascota. Estos estados están definidos como un dato tipo `enum` en los códigos de ayuda. A continuación se presentan la lista de estados posibles según orden de prioridad (de menor a mayor), así como sus condiciones específicas:
 1.  *(-_-) Meh....* **(Neutro)**: Estado por omisión de la mascota.
@@ -65,10 +65,11 @@ Felicidad: 35
 Estado: (-_-) Meh....
 ```
 
-El tiempo para la simulación de vida de la mascota virtual se establece en aumento de 0.5 unidades de tiempo por cada paso de tiempo. Cada incremento de tiempo afecta:
+El paso tiempo para la simulación de vida de la mascota virtual se simula a través de una variable `float`, cuyo incremento se establece en aumentos de 0.5 unidades de tiempo por cada paso de tiempo. Cada incremento de tiempo produce:
 
-- La edad de la mascota, la cual aumenta en 0.5 unidades de tiempo.
-- La salud, la energía y la felicidad de la mascota, las cuales disminuyan en 5 puntos cada una.
+- La aparición de un menú, el cual permite interactuar con la mascota, continuar el paso del tiempo, o terminar el programa.
+- Un aumento en la edad de la mascota, la cual aumenta en **0.5 unidades de tiempo**.
+- La modificación de la salud, la energía y la felicidad de la mascota, las cuales disminuyan en **5 puntos cada una**.
 
 ### 2.2 Ítems
 Los ítems corresponde a diferentes elementos con los que puede interactuar la mascota virtual. Estos se pueden agrupar en las siguientes categorías/clases:
@@ -110,7 +111,7 @@ Las líneas posteriores al nombre de la mascota contienen la siguiente informaci
 
 ### 3.1 Etapa 1: Inicialización de la clase Main y creación de la clase Mascota
 
-En esta etapa se desarrollará la clase `Mascota` que representará a la mascota virtual del programa. Esta clase contendrá los atributos y métodos necesarios para modelar el comportamiento y estado de la mascota. Se enfocará en la definición de los atributos básicos como nombre, edad, salud, energía, felicidad y estado.
+En esta etapa se desarrollará la clase `Mascota` que representará a la mascota virtual del programa. Esta clase contendrá los atributos y métodos necesarios para modelar el comportamiento y estado de la mascota. Se enfocará en la definición de los atributos básicos como nombre, edad, salud, energía, felicidad y estado. No necesita el archivo `config.csv` en esta etapa.
 
 Los valores iniciales para los indicadores de `Mascota` serán los siguientes
 - `edad = 0`
@@ -122,6 +123,8 @@ Puede utilizar opcionalmente el código de ayuda publicado en Aula como base par
 
 *Ejemplo de salida esperada*
 ```shell
+$ java Main
+
 Mascota Virtual
 
 Atributos
@@ -135,7 +138,7 @@ Estado: (-_-) Meh....
 ```
 
 ### 3.2 Etapa 2: Diseño e implementación de Ítems
-En esta etapa se procederá a la creación tanto de la clase `Item` como de sus clases derivadas `Comida`, `Medicina` y `Juguete`. Estas clases estarán destinadas a representar los diferentes tipos de ítems que serán almacenados en el inventario más adelante. Las clases se deben dotar de los atributos y métodos necesarios para interactuar adecuadamente con la mascota.
+En esta etapa se procederá a la creación tanto de la clase `Item` como de sus clases derivadas `Comida`, `Medicina` y `Juguete`. Estas clases estarán destinadas a representar los diferentes tipos de ítems que serán almacenados en el inventario más adelante. Las clases se deben dotar de los atributos y métodos necesarios para interactuar adecuadamente con la mascota. No necesita el archivo `config.csv` en esta etapa.
 
 Para verificar la correcta implementación de esta etapa, se solicita lo siguiente:
 
@@ -154,6 +157,8 @@ Se proporcionan valores iniciales para los indicadores de la mascota:
 
 *Ejemplo de salida esperada*
 ```shell
+$ java Main 
+
 Atributos
 ---------
 Nombre: Garfield
@@ -205,7 +210,7 @@ Estado: \(^_^)/ Weeeeeh!
 ```
 
 ### 3.3 Etapa 3: Creación del inventario con ítems
-En esta etapa se creará la clase `Inventario`,donde se almacenarán diversas instancias de ítems correspondientes a las clases `Comida`, `Medicina` y `Juguete`. Estas instancias deben ser almacenadas en un `ArrayList` de tipo `Item` dentro de la clase `Inventario`.
+En esta etapa se creará la clase `Inventario`,donde se almacenarán diversas instancias de ítems correspondientes a las clases `Comida`, `Medicina` y `Juguete`. Estas instancias deben ser almacenadas en un `ArrayList` de tipo `Item` dentro de la clase `Inventario`. No necesita el archivo `config.csv` en esta etapa.
 
 También debe implementar el paso del tiempo para la simulación de la mascota. Cada acción de la mascota o interacción con un ítem, produce que el tiempo avance 0.5 unidades.
 
@@ -224,12 +229,14 @@ Para verificar la correcta implementación de esta etapa, se solicita lo siguien
     - id 3, Clase Comida, Nombre Pan, cantidad 3
     - id 4, Clase Medicina, Nombre Jarabe, cantidad 4
 - Mostrar el tiempo de simulación a medida que este avanza. Es importante recordar que el tiempo afectará la edad de la mascota y sus atributos según lo explicado.
-- Mostrar el estado de la mascota, atributos e indicadores en cada momento.
-- Mostrar el estado del inventario en cada momento como un menú que permita seleccionar un ítem en cada momento.
+- Mostrar el estado de la mascota, atributos e indicadores en cada incremento de tiempo.
+- Mostrar el estado del inventario en cada incremento de tiempo como un menú que permita seleccionar un ítem del mismo.
 - Utilice el ítem seleccionado en la mascota y vuelva a mostrar el nuevo tiempo, el estado de la mascota y el estado del inventario.
 
 *Ejemplo de salida esperada*
 ```shell
+$ java Main
+
 tiempo simulado: 0.5
 Atributos
 ---------
@@ -290,7 +297,7 @@ Seleccione un elemento del inventario:
 
 ### 3.4 Etapa 4: Inicialización de inventario a partir de archivo `config.csv`
 
-En esta etapa se inicializará el inventario y el nombre de la mascota utilizando un archivo de entrada llamado `config.csv`. Este archivo debe ser pasado como parámetro del programa al ejecutarl.
+En esta etapa se inicializará el inventario y el nombre de la mascota utilizando un archivo de entrada llamado `config.csv`. Este archivo debe ser pasado como parámetro del programa al ejecutarlo.
 
 *Ejemplo de ejecución:*
 ```bash
@@ -305,6 +312,8 @@ Adicionalmente, complete el menú de la etapa anterior para que permita acceder 
 
 *Ejemplo de salida esperada*
 ```shell
+$ java Main config.csv
+
 tiempo simulado: 0.5
 Atributos
 ---------
@@ -434,7 +443,8 @@ Si desarrolla esta parte, indíquelo en su documentación agregando también los
 
 ## 4. Elementos a considerar en su documentación
 
-Entregue todo lo indicado en "Normas de Entrega de Tareas". 
+Entregue todo lo indicado en "[Normas de Entrega de Tareas](http://profesores.elo.utfsm.cl/~agv/elo329/1s24/Assignments/guideline_2024/html/normas_procedimientos.html#proc_entrega)" (entrega por github/gitlab **no aplica en esta tarea**).
+
 Prepare un archivo makefile para compilar y ejecutar su tarea en aragorn con rótulo `run`. Además, incluya rótulos `clean` para borrar todos los `.class` generados. Los comandos a usar en cada caso son:
 ```bash
 $ make    /* para compilar */
@@ -442,3 +452,5 @@ $ make run  /* para ejecutar la tarea */
 $ make clean  /* para borrar archivos .class */
 ```
 En su archivo de documentación (`pdf` o `html`) incorpore el diagrama de clases de la aplicación (Etapa 4).
+
+Entregue su desarrollo en un archivo comprimido (`.zip`, `.rar`, `.tar.gz`, etc.), que incluya su desarrollo por cada etapa separado por carpetas.
