@@ -51,11 +51,15 @@ Por los años 90 los desarrolladores de Java buscaban ofrecer lenguaje independi
 - Java
     - Bajar Java SE (Estándar Edition) desde [https://www.oracle.com/java/](https://www.oracle.com/java/).
     - Para Linux también lo puede instalar desde un repositorio (apt-get, yum, pacman, etc.)
-    - La instalación varía según su SO. Cosas a tener en cuenta:
-        - Bajar archivo de instalación
-        - Seguir los pasos para su ejecución
-        - Ejecutar una consola y probar comando `$ java --versión`
-        - Según la respuesta otras acciones podrían ser necesarias; por ejemplo, la configuración de la variable PATH
+
+---
+# Trabajando con Java
+
+- La instalación varía según su SO. Cosas a tener en cuenta:
+    - Bajar archivo de instalación
+    - Seguir los pasos para su ejecución
+    - Ejecutar una consola y probar comando `$ java --versión`
+    - Según la respuesta otras acciones podrían ser necesarias; por ejemplo, la configuración de la variable PATH
 
 ---
 
@@ -64,14 +68,18 @@ Por los años 90 los desarrolladores de Java buscaban ofrecer lenguaje independi
 - Definición e instalación de Editor de texto.
 - Editor:
     - Para cosas simples usar alguno de su conveniencia; por ejemplo, [sublime](https://www.sublimetext.com/index2).
-    - Una vez que sabe cómo compilar y correr usando la consola, se sugiere usar un ambientes integrados de Desarrollo (IDE) como:
-        - [Visual Studio Code](https://code.visualstudio.com/)
-        - [Intelli J](https://www.jetbrains.com/es-es/idea/)
-        - [jGrasp](https://www.jgrasp.org/)
-        - [Eclipse](https://eclipseide.org/)
-        - [Netbeans](https://netbeans.apache.org/front/main/index.html)
-    - Un buen editor debería ayudar a indentar su programa, colorear palabras reservadas, etc.
-    - **No usar notepad** o similar.
+    
+    
+---
+# Trabajando con Java    
+- Una vez que sabe cómo compilar y correr usando la consola, se sugiere usar un ambientes integrados de Desarrollo (IDE) como:
+    - [Visual Studio Code](https://code.visualstudio.com/)
+    - [Intelli J](https://www.jetbrains.com/es-es/idea/)
+    - [jGrasp](https://www.jgrasp.org/)
+    - [Eclipse](https://eclipseide.org/)
+    - [Netbeans](https://netbeans.apache.org/front/main/index.html)
+- Un buen editor debería ayudar a indentar su programa, colorear palabras reservadas, etc.
+- **No usar notepad** o similar.
 
 ---
 

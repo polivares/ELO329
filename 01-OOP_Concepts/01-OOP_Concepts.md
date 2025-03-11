@@ -17,6 +17,9 @@ Patricio Olivares
 - Los computadores parten cableados por hardware.
 - Luego se introduce la programación en binario.
 - Se desarrolla el lenguaje assembler (lenguaje de máquina).
+
+---
+# Paradigmas de Programación: Historia
 - Se desarrollan los lenguajes de alto nivel siguiendo dos paradigmas:
     - **Programación Imperativa**: donde la computación es descrita vía sentencias que cambian el estado del programa. Es una secuencia de comandos para el computador. **El programa señala cómo se llega a la solución** Ej. C, C++, Java, Python.
     - **Programación declarativa**: la computación es descrita según su lógica sin indicar su control de flujo. **Se indica qué se debe hacer, no el cómo se debe hacer**. Ej. HTML (HyperText Markup Language), CSS (Cascading Style Sheet), las fórmulas en planillas electrónicas.
@@ -26,6 +29,9 @@ Patricio Olivares
 # Programación Imperativa
 
 - Parte con la **Programación por Procedimientos** (Procedural Programming) donde la **computación es descrita con el apoyo de llamados a procedimientos o funciones**. El programador debe encontrar la secuencia de instrucciones que resuelven la tarea, hace uso de procedimientos para mejorar la estructura y claridad del programa. Se dice que el lenguaje es estructurado (sin go-to).
+
+---
+# Programación Imperativa
 - Luego evoluciona a la **Programación Orientada a Objetos**: El programador debe encontrar *objetos*; es decir, entidades que *tienen comportamiento, estado* y pueden interactuar con otros objetos. **La computación se describe como la interacción de estos objetos**. Representa un intento por hacer los programas más cercanos a la forma como pensamos y nos relacionamos con el mundo. Este enfoque permite programas más naturales, más simples de construir bien y de entender.
 
 ---
@@ -95,6 +101,9 @@ Salvo excepciones, la interacción con el objeto solo debería ser vía los serv
 
 - Cada objeto es único, pero generalmente hay varios del mismo tipo. Hay varios puntos, por ejemplo.
 - Cuando modelamos la realidad, lo hacemos reconociendo las categorías de objetos que comparten sus características. Ej: *En un sistema podemos tener varios resortes, o personas, pero todos siguen el mismo patrón de comportamiento.*
+
+---
+# Clases
 - Las clases definen las características de los objetos. Son la *descripción para una categoría de objetos de características comunes, estableciendo sus atributos y operaciones*. Ej. 
     - Atributo: fecha nacimiento para persona, constante elástica para resorte; 
     - Operaciones: obtener edad de persona, fuerza ejercida para resorte.
@@ -216,6 +225,10 @@ Se desea modelar una **calculadora básica** como un objeto.
 Los lenguajes OO se caracterizan por:
 - Permiten expresar *herencia*: relación entre clases que permite reusar la definición de un tipo de objeto para definir otro tipo de objeto.
 - *Subtipos*: Si un objeto a tiene todo lo requerido por otro objeto b, entonces podemos usar *a* donde se esperaba *b*.
+
+---
+# Características de los POO
+
 - Permiten expresar *abstracción*: es decir, detalles de una implementación pueden ocultarse en el programa. Para usar una clase no necesitamos conocer cómo está implementada. La *implementación de una clase* es el código de sus métodos y los atributos que tiene.
 - Ligado dinámico: Cuando un método es invocado en un objeto, el código ejecutado (método) es determinado en tiempo de ejecución según el objeto que lo recibe. Esto conduce a que una misma invocación puede responder de manera distinta según quién la reciba.
 
