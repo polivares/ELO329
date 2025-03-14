@@ -1,5 +1,4 @@
 /**
-   @version 2014
    @author Agustín J. González
 */
 
