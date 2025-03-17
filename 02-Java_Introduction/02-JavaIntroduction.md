@@ -8,6 +8,21 @@ Patricio Olivares
 
 ---
 
+# Plataforma recomendada: Linux
+
+En esta asignatura se trabajará con **Linux** como plataforma principal. Si bien el funcionamiento de Java permite ejecutarse en diversas plataformas (Windows, macOS), se recomienda el uso de Linux para garantizar la compatibilidad y coherencia en el desarrollo y ejecución de programas.
+
+**Importante:** Los estudiantes que opten por trabajar en otras plataformas serán responsables de asegurar que su código funcione correctamente en un entorno Linux.
+
+---
+# Plataforma recomendada: Linux
+## **Alternativas para usar Linux en otros entornos**
+- **WSL (Windows Subsystem for Linux)**: Permite ejecutar un entorno Linux dentro de Windows sin necesidad de una máquina virtual.
+- **Máquinas Virtuales**: Usando software como VirtualBox o VMware, se puede instalar una distribución de Linux y ejecutarla dentro de otro sistema operativo.
+- **Arranque dual (Dual Boot)**: Instalación de Linux en una partición del disco junto con otro sistema operativo.
+- **Live USB**: Uso de una distribución Linux desde una unidad USB sin necesidad de instalación en el disco.
+---
+
 # Java: Motivaciones  de su origen
 
 Por los años 90 los desarrolladores de Java buscaban ofrecer lenguaje independiente de:
@@ -15,6 +30,9 @@ Por los años 90 los desarrolladores de Java buscaban ofrecer lenguaje independi
 - Sistema operativo
 - Sistema de ventanas (win32, Motif, etc.)
 - Obs: Cuando Java aparece (1995) no existía Qt (herramienta para desarrollar software gráfico en C++ para múltiples plataformas).
+
+---
+# Java: Motivaciones  de su origen
 - C++ permite el uso de punteros, muy útiles para electrónicos y telemáticos, pues corresponde a direcciones de la memoria física. Como éstos generaban dificultades para muchos, Java los elude.
 - Java hace un manejo de memoria que libera al programador de esa preocupación. No hay "fugas de memoria" o "memory leaks"
 
@@ -45,27 +63,68 @@ Por los años 90 los desarrolladores de Java buscaban ofrecer lenguaje independi
 
 ---
 
-# Trabajando con Java
+# Edición, compilación y ejecución
+Compilación y ejecución de un programa Java en Linux se realiza por **consola de comandos**:
 
-- Definición e instalación de Java y Editor de texto.
+---
+
+# Edición, compilación y ejecución
+## Actividad
+1. **Escribir el código fuente en un archivo `.java`**
+   ```bash
+   nano FirstSample.java
+   ```
+   Luego, copiar el siguiente código (no es necesario entenderlo, cópienlo con fe!):
+   ```java
+   public class FirstSample {
+       public static void main(String[] args) {
+           System.out.println("¡Hola, Java!");
+       }
+   }
+   ```
+   Guardar y salir (`CTRL + X`, `Y`, `Enter`).
+
+---
+
+# Edición, compilación y ejecución
+
+2. **Compilar el código fuente**
+   ```bash
+   javac FirstSample.java
+   ```
+   Esto generará un archivo `FirstSample.class` con el código en *bytecode*.
+
+---
+
+# Edición, compilación y ejecución
+
+3. **Ejecutar el programa**
+   ```bash
+   java FirstSample
+   ```
+   **Salida esperada:**
+   ```
+   ¡Hola, Java!
+   ```
+
+---
+
+# Trabajando con Java
+## Definición e instalación de Java y Editor de texto.
 - Java
-    - Bajar Java SE (Estándar Edition) desde [https://www.oracle.com/java/](https://www.oracle.com/java/).
-    - Para Linux también lo puede instalar desde un repositorio (apt-get, yum, pacman, etc.)
-
----
-# Trabajando con Java
-
-- La instalación varía según su SO. Cosas a tener en cuenta:
-    - Bajar archivo de instalación
-    - Seguir los pasos para su ejecución
-    - Ejecutar una consola y probar comando `$ java --versión`
-    - Según la respuesta otras acciones podrían ser necesarias; por ejemplo, la configuración de la variable PATH
-
+  - Descargar desde: [https://www.oracle.com/java/technologies/javase/jdk21-archive-downloads.html](https://www.oracle.com/java/technologies/javase/jdk21-archive-downloads.html)
+  - Puede instalar `open-jdk` (proyecto open source del JDK de Java) en distribuciones Linux basadas en Debian por consola:
+    ```bash
+    sudo apt install openjdk-21-jdk
+    ```
+  - Verificar instalación con:
+    ```bash
+    java --version
+    ```
 ---
 
 # Trabajando con Java
-
-- Definición e instalación de Editor de texto.
+## Definición e instalación de Editor de texto.
 - Editor:
     - Para cosas simples usar alguno de su conveniencia; por ejemplo, [sublime](https://www.sublimetext.com/index2).
     
@@ -83,25 +142,15 @@ Por los años 90 los desarrolladores de Java buscaban ofrecer lenguaje independi
 
 ---
 
-# Mi primer programa
+# Configuración recomendada: IntelliJ + JDK 21 + Linux
 
-- **Creación de programa**: Con editor crear programa con extensión java (`FirstSample.java`).
-- **Compilación**: vía línea de comandos
-```bash
-$ javac FirstSample.java
-```
-La salida será uno o más archivos `.class`. Esta es la versión del programa en código byte (*byte code*).
+Para facilitar el desarrollo en Java, se recomienda utilizar la siguiente configuración:
 
----
+- **Sistema Operativo:** Linux
+- **JDK:** Java Development Kit (JDK) 21 (versión LTS-Long Term Support)
+- **IDE:** IntelliJ IDEA
 
-# Mi primer programa
-
-- **Ejecución**: 
-```bash
-$ java FirstSample
-```
-Notar que java es el programa que corremos para crear la máquina virtual donde el "byte code" (`.class`) es ejecutado. Equivale a una interpretación en la máquina real.
-- Para aprender más, ver [Documentación JDK 21](https://docs.oracle.com/en/java/javase/21/) (Java Development Kit).
+**Nota:** Configuraciones con otros IDEs como *NetBeans*, *Eclipse*, o *Visual Studio Code* también son posibles, pero la compatibilidad y soporte en la asignatura se enfocará en la configuración recomendada.
 
 ---
 
@@ -109,3 +158,4 @@ Notar que java es el programa que corremos para crear la máquina virtual donde 
 
 - Java tiene muchas [componentes](http://manuales.elo.utfsm.cl/manuales/jdk-8u40/index.html) (componentes para Java versión 8)
 - Nosotros usaremos algunas, tales como : java, javac, javadoc, JavaFX, etc.
+- Para aprender más, ver [Documentación JDK 21](https://docs.oracle.com/en/java/javase/21/) (Java Development Kit).
