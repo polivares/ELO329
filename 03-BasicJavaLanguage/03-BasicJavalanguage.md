@@ -543,6 +543,7 @@ int a = matriz[1,2]; // será el 6 porque parten de 0
 # Arreglos multidimensionales
 Ejemplo
 ```java
+int [][] triangular = new int [5][];
 for (int n=0; n<triangular.length; n++){
     triangular[n]=new int[n+1];
     for (int j=0; j < triangular[n].length; j++)
