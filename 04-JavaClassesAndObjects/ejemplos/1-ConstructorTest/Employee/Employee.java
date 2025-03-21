@@ -35,7 +35,7 @@ class Employee
 	return salary;
     }
     /* OJO se retorna una referencia a un valor privado.
-       Externamente se podría modificar el datos.
+       Externamente se podría modificar el dato.
        La solución es clonar el objeto y retornar el clono.
     */
     public Date getHireDay()
