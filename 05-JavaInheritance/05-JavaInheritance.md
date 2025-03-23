@@ -1,5 +1,6 @@
 ---
 marp: true
+paginate: true
 ---
 # ELO329 - Diseño y Programación Orientados a Objetos
 ## Herencia: Reutilización de código y código genérico
@@ -125,6 +126,10 @@ Employee e;
 
 - Es importante entender qué método es ejecutado al manipular un nombre que se puede referir a instancias de clases derivadas.
 - Al momento de la compilación el compilador intenta resolver el método que corresponda según su nombre y parámetros. Si la superclase y la clase base tienen definido el mismo método ¿Qué implementación se invoca?.
+
+---
+# Ligado Dinámico 
+## Muy importante
 - **Se invocará el método definido en la clase del objeto y no el método de la clase de la referencia. A esto se le llama ligado dinámico.**
 - Por ello, si una clase derivada redefine el mismo método, éste será invocado para sus instancias.
 - **¿Cuándo no se usa ligado dinámico? Cuando el método en la clase de la referencia es privado, static, o final.**
@@ -132,3 +137,36 @@ Employee e;
 ---
 # Ligado Dinámico (ilustrado)
 ![Ligado Dinámico](imagenes/ligado_dinamico.jpeg)
+
+---
+## Actividad práctica - Herencia y Polimorfismo
+
+Escribe un programa en Java que modele una jerarquía de empleados. El programa debe incluir:
+
+1. Una clase `Empleado` con:
+   - Atributos `String nombre` y `double salario`.
+   - Un constructor que reciba ambos valores.
+   - Un método `void getDetalles()` que retorne una cadena con el nombre y salario.
+
+---
+## Actividad práctica - Herencia y Polimorfismo
+
+2. Una clase `Gerente` que herede de `Empleado`, con:
+   - Atributo adicional `String departamento`.
+   - Un constructor que reciba `nombre`, `salario` y `departamento`.
+   - Una redefinición del método `void getDetalles()` que incluya el departamento.
+
+---
+## Actividad práctica - Herencia y Polimorfismo
+
+3. Una clase `EmpresaTest` con el método `main` donde:
+   - Se cree un objeto `Empleado` y uno `Gerente`, ambos referenciados como `Empleado`.
+   - Se invoque `getDetalles()` sobre ambas referencias para observar el comportamiento polimórfico.
+
+### Ejemplo de salida esperada:
+```bash
+$ java EmpresaTest
+Lista de empleados:
+- Empleado: Juan, Salario: 500000.0 
+- Gerente: Ana, Salario: 1200000.0, Departamento: Finanzas
+```
