@@ -43,9 +43,6 @@ class Nombre_de_la_Clase {
 
 - Son métodos con algunas peculiaridades:
     - El compilador busca el constructor usando su "firma": `nombre_constructor + lista de parámetros`
-    - Java provee constructor por omisión `Clase();` es decir, sin parámetros, cuando ningún otro constructor ha sido creado.
-    - Podemos proveer uno o más constructores. Esto es un tipo de sobrecarga de métodos (igual nombre con distintos parámetros).
-    - El compilador busca el constructor usando su "firma": `nombre_constructor + lista de parámetros`
 
 ---
 # Constructores en Java
