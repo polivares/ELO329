@@ -1,5 +1,6 @@
 ---
 marp: true
+paginate: true
 ---
 # ELO329 - Diseño y Programación Orientados a Objetos
 ## Ligado Dinámico y Clases Abstractas (*): Reutilización de código y código genérico
@@ -14,13 +15,16 @@ class Manager extends Employee{
     ...
 }
 ```
+
+---
+# Recordemos un segmento de código de `ManagerTest.java`
+
 ```java
 public static void main(String[] args) {
     // construct a Manager object
     Manager boss = new Manager("Carl Cracker" 80000,1987,12,15);
     boss.setBonus(5000);
-    Employee[] staff = new Employee[3];
-    // fill the staff array with Manager and Employee objects
+    Employee[] staff = new Employee[3]; // fill staff array with Manager and Employee objects
     staff[0] = boss;
     staff[1] = new Employee("Harry Hacker", 50000,1989, 10, 1);
     staff[2] = new Employee("Tommy Tester", 40000,1990, 3, 15);
@@ -55,7 +59,7 @@ Employee e = new Employee(...); // es OK
 - Debemos distinguir entre la clase de la referencia y la clase del objeto apuntado por la referencia.
 
 ---
-# Ligado Dinámico (cont.)
+# Ligado Dinámico
 - Gracias al **ligado dinámico** es posible hacer **programas fácilmente extensibles**.
 - Creamos una clase derivada y redefinimos los comportamientos que deseamos.
 - No se requiere recompilar las clases existentes. Esto es usado intensamente al utilizar clases predefinidas en el lenguaje.
@@ -63,6 +67,9 @@ Employee e = new Employee(...); // es OK
 ```java
 final class Manager extends Employee { ... }
 ```
+
+---
+# Ligado Dinámico
 - Si un método es final, ninguna subclase puede redefinirlo.
 - El ligado dinámico es más lento que el estático (> tiempo de
 ejecución).
@@ -73,8 +80,8 @@ ejecución).
 - Se debe cumplir que el objeto retornado por la clase derivada sea subtipo del retornado en la clase base.
 - Ej.
 ```java
-Employee getColleague() {…} // en clase base
-Manager getColleague() {…} // en clase hija (Redefinición válida)
+Employee getColleague() {...} // en clase base
+Manager getColleague() {...} // en clase hija (Redefinición válida)
 ```
 ![Employee Manager](imagenes/employee_manager.svg)
 
@@ -103,7 +110,7 @@ Manager m = (Manager) e;
 - **Ahora con `m` sí podemos invocar los métodos sólo presentes en `Manager`**.
 
 ---
-# “Casteo”: Cambio de tipo forzado (cont.)
+# "Casteo": Cambio de tipo forzado
 - ¿Cómo sabemos que `e` es una referencia a una instancia de `Manger`?
 - Lo podemos preguntar con el operador `instanceof`.
 ```java
@@ -128,7 +135,7 @@ el compilador aceptará las invocaciones a `setBonus()`, pero en tiempo de ejecu
 Es decir no podemos hacer `new Forma()`, cuando `Forma` es abstracta.
 
 ---
-# Clases abstractas (cont.)
+# Clases abstractas
 - En el caso de `Forma`, debe declararse como **clase abstracta** por tener al menos un método declarado pero no implementado.
 
 ```java
@@ -140,3 +147,28 @@ public abstract class Forma {
 ```
 - Ver `PersonTest.java`. Revisar uso de clases abstractas.
 - Ver `CatsAndDogs.java`. Revisar uso de clases abstractas y colecciones, en particular `ArrayList<"clase">`
+
+---
+## Actividad Práctica - Ligado dinámico y clases abstractas
+
+Escribe un programa en `Java` que modele figuras geométricas utilizando clases abstractas. El programa debe incluir:
+
+1. Una clase abstracta `Figura` con:
+   - Un método abstracto `double getArea()`.
+   - Un método `String getTipo()` que retorne el String `"Figura"` por omisión.
+2. Dos subclases:
+   - `Rectangulo`, con atributos `base` y `altura`, que implemente `getArea()` y sobrescriba `getTipo()` para retornar el String `"Rectángulo"`.
+   - `Circulo`, con atributo `radio`, que implemente `getArea()` y sobrescriba `getTipo()` para retornar el String `"Círculo"`.
+---
+## Actividad Práctica - Ligado dinámico y clases abstractas
+
+3. En una clase `TestFiguras` (clase que contiene el método `main`), crear un arreglo de tipo `Figura` que contenga instancias tanto de `Rectangulo` y `Circulo` (seleccione ud. sus atributos manualmente), y recorrerla imprimiendo el tipo de figura y su área. 
+
+### Ejemplo de salida esperada:
+```bash
+Figura: Rectángulo, Área: 20.0 
+Figura: Círculo, Área: 28.26
+```
+
+---
+4. Cree una instancia de la clase `Figura`. ¿Qué ocurre? discuta al respecto
