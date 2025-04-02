@@ -105,6 +105,9 @@ Employee e;
 e = new Manager(..); // Es OK por Principio de Sustitución
 ```
 Usando `e` tenemos acceso a todo lo correspondiente a `Employee`, pero con la implementación de `Manager`.
+
+---
+# Polimorfismo: Ejemplo
 - Al revés (asignar un `Employee` a una referencia de `Manager`) no es válido toda referencia a Manager debe poder responder a todos sus métodos.
  ```java
 Manager m = new Employee(). // ERROR!

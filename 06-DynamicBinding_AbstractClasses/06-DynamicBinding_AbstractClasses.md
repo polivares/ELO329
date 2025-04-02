@@ -131,7 +131,11 @@ el compilador aceptará las invocaciones a `setBonus()`, pero en tiempo de ejecu
     - Por ejemplo: Clase `Forma` como clase base de `Triangulo`, `Circulo`, `Cuadrado`;
     - Cómo implementamos `getArea()` en `Forma`? No se puede.
     - `Forma` puede indicar todo el comportamiento válido; por ejemplo método `getArea()`, pero no tenemos cómo implementarlo sin saber de qué forma se trata.
-    - No tiene sentido y es error de compilación instanciar una clase que no tiene todos los métodos implementados (ej. `getArea()`).
+
+---
+# Clases abstractas
+
+- No tiene sentido y es error de compilación instanciar una clase que no tiene todos los métodos implementados (ej. `getArea()`).
 Es decir no podemos hacer `new Forma()`, cuando `Forma` es abstracta.
 
 ---
