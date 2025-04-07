@@ -125,3 +125,27 @@ new Comparable(); // es un error!
     - `delay` tiempo entre invocaciones del método `listener.actionPerformed()`.
     - La clase de listener debe implementar la interfaz [`ActionListener`](https://docs.oracle.com/en/java/javase/21/docs/api/java.desktop/java/awt/event/ActionListener.html), la cual solo contiene el método `actionPerformed()`.
     - Ver `TimeGoesByTest.java`
+
+---
+## Actividad práctica - Interfaces
+
+Escribe un programa en Java que modele el comportamiento de personas que reciben pagos mensuales, utilizando interfaces.
+
+1. Define una interfaz `Pagable` con un método `int getPagoMensual()`.
+2. Crea dos clases que implementen `Pagable`:
+   - `Empleado`, con atributos `nombre` y `sueldo`.
+   - `Freelancer`, con atributos `nombre`, `tarifaHora` y `horasTrabajadas`.
+3. Implementa el método `getPagoMensual()` en ambas clases según corresponda.
+4. En una clase `EmpresaTest`, crea un arreglo o lista de objetos `Pagable` que incluya empleados y freelancers.
+
+
+---
+## Actividad práctica - Interfaces
+
+5. Recorre la colección e imprime el nombre y el pago mensual de cada persona.
+### Ejemplo de salida esperada:
+```bash
+Empleado: Ana, Pago mensual: 850000 
+Freelancer: Luis, Pago mensual: 600000
+
+```

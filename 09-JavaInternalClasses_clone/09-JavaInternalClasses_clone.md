@@ -96,7 +96,7 @@ class BankAccount {
 }
 ```
 ---
-# # Ej. de Clase Interna `InnerClasstest.java`
+# Ej. de Clase Interna `InnerClasstest.java`
 - Instancias de la clase Timer un vez iniciados invocan al método `actionPerformed` regularmente.
 - Solo ocupamos una instancia de la clase interna en método `start`.
 
@@ -200,3 +200,36 @@ class Employee implements Cloneable {
 # Implementación de clone (copia profunda)
 - String es clase no mutante (no tiene métodos que cambien su estado), no requerimos clonarlo
 - Ver `CloneTest.java`
+
+---
+## Actividad práctica - Clases Internas y Clonación
+
+Escribe un programa en Java que modele una cuenta bancaria y permita clonarla.
+
+1. Crea una clase `CuentaBancaria` con:
+   - Atributos `titular` (String) y `saldo` (double).
+   - Un método `mostrarInfo()` que imprima la información de la cuenta.
+
+2. Dentro de `CuentaBancaria`, define una **clase interna no estática** llamada `Transaccion` con:
+   - Método `depositar(double monto)` que aumente el saldo.
+
+---
+## Actividad práctica - Clases Internas y Clonación
+
+
+3. Implementa la interfaz `Cloneable` y redefine el método `clone()` en `CuentaBancaria` para permitir clonar la cuenta.
+
+4. En la clase `BancoTest`, haz lo siguiente:
+   - Crea una cuenta y realiza un depósito con la clase interna.
+   - Clona la cuenta.
+   - Muestra la información de la cuenta original y la clonada.
+
+
+---
+## Actividad práctica - Clases Internas y Clonación
+
+### Ejemplo de salida esperada:
+```bash
+Cuenta original - Titular: Ana, Saldo: 150000.0 
+Cuenta clonada - Titular: Ana, Saldo: 150000.0
+```
