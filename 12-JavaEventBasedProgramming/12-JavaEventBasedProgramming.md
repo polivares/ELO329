@@ -184,3 +184,55 @@ public class CloseableStage_Lambda extends Application {
 # Algunas recomendaciones
 - No es estrictamente necesario poner la descripción de las componentes de la GUI en una clase separada, pero es buena idea. Incluso puede ser conveniente poner cada clase en un archivo separado para así distinguir la presentación e interacción con el usuario del procesamiento o cálculo interno.
 - Si en método `handle` no verificamos qué tecla se ingresó, `updateLabel()`, será llamada con cada letra presionada.
+
+---
+## Actividad práctica - Programación basada en eventos
+
+En esta actividad trabajarás con una interfaz gráfica en JavaFX que ya está construida. Tu tarea es agregar el manejo del evento para que, cuando el usuario escriba un texto y presione Enter, una etiqueta muestre lo ingresado.
+
+### Instrucciones
+
+1. Observa el siguiente código base.
+2. Agrega una expresión lambda o una clase anónima para manejar el evento `setOnAction` del campo de texto.
+3. Al presionar Enter, el texto ingresado debe mostrarse en la etiqueta (`Label`).
+
+---
+### Código base:
+
+```java
+import javafx.application.Application;
+import javafx.scene.Scene;
+import javafx.scene.control.Label;
+import javafx.scene.control.TextField;
+import javafx.scene.layout.VBox;
+import javafx.stage.Stage;
+
+public class EcoApp extends Application {
+
+    @Override
+    public void start(Stage primaryStage) {
+        Label etiqueta = new Label("Escribe algo y presiona Enter:");
+        TextField campoTexto = new TextField();
+
+        // TODO: Agrega aquí el handler para actualizar la etiqueta
+        // campoTexto.setOnAction(...);
+
+        VBox root = new VBox(10, etiqueta, campoTexto);
+        Scene scene = new Scene(root, 300, 150);
+        primaryStage.setScene(scene);
+        primaryStage.setTitle("EcoApp");
+        primaryStage.show();
+    }
+
+    public static void main(String[] args) {
+        launch(args);
+    }
+}
+``` 
+---
+### Comportamiento esperado:
+- El usuario escribe: "Hola mundo"
+- Al presionar Enter, la etiqueta cambia su texto y muestra: "Hola mundo"
+
+
+

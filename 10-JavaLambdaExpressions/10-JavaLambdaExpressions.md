@@ -1,5 +1,6 @@
 ---
 marp: true
+paginate: true
 ---
 
 # ELO329 - Diseño y Programación Orientados a Objetos
@@ -119,4 +120,23 @@ public class Calculator {
     }
 
 }
+```
+
+---
+## Actividad práctica - Expresiones Lambda
+
+Escribe un programa en Java que utilice expresiones lambda para definir operaciones matemáticas simples.
+
+1. Crea una interfaz `Operacion` con un único método `int aplicar(int a, int b)`.
+2. En una clase `CalculadoraLambda`, define una función `calcular(int a, int b, Operacion op)` que retorna el resultado de aplicar `op`.
+3. En el método `main`, utiliza expresiones lambda para definir y aplicar:
+   - Una suma.
+   - Una multiplicación.
+4. Imprime los resultados de ambas operaciones.
+
+---
+### Ejemplo de salida esperada:
+```bash
+Suma: 7 
+Multiplicación: 12
 ```

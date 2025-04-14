@@ -1,5 +1,6 @@
 ---
 marp: true
+paginate: true
 ---
 
 # ELO329 - Diseño y Programación Orientados a Objetos
@@ -184,3 +185,21 @@ public void readStuff(String name) throws IOException {
 }
 ```
 - Para redefinir un método que no lanza excepciones, la redefinición tampoco debe hacerlo.
+
+---
+## Actividad práctica - Manejo de Excepciones
+
+Escribe un programa en Java que lea dos números enteros desde consola y realice una división segura.
+
+1. Crea una clase `CalculadoraSegura` con un método `dividir(int a, int b)` que retorne `a / b`.
+2. En el método `main`, solicita al usuario dos números.
+3. Usa un bloque `try-catch` para capturar posibles excepciones (por ejemplo, división por cero o entrada inválida).
+4. Si ocurre un error, muestra un mensaje adecuado. Si no, muestra el resultado de la división.
+
+---
+### Ejemplo de salida esperada:
+```bash
+Ingrese el numerador: 10 
+Ingrese el denominador: 0 
+Error: no se puede dividir por cero.
+```
