@@ -1,8 +1,8 @@
 # ELO329 - Diseño y Programación Orientados a Objetos
 
 **Institución:** Universidad Técnica Federico Santa María, Departamento de Electrónica 
-**Semestre:** 2025-1  
-**Docentes:** Patricio Olivares (CSJ), Agustín González (CC), Pablo Ormeño (CC)  
+**Semestre:** 2026-1  
+**Docentes:** Patricio Olivares (CSJ), Agustín González (CC)
 **Descripción:**  
 Este repositorio contiene el material del curso **ELO329-Diseño y Programación Orientados a Objetos**, donde se abordan los fundamentos y la aplicación de la Programación Orientada a Objetos (POO) en **Java** y **C++**, junto con herramientas y metodologías de desarrollo de software.
 
