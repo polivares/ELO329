@@ -32,6 +32,7 @@ public class Mimic extends Application {
 	private TextField textfield;
    
 	public void start(Stage primaryStage) {
+		// Temas de interfaz gráfica (los veremos en la siguiente unidad)
 		FlowPane layout = new FlowPane();
 		Scene scene = new Scene(layout,200,50);
 		label = new Label("Echo appears here");
@@ -39,6 +40,8 @@ public class Mimic extends Application {
 		textfield.setPrefWidth(200);
 		layout.getChildren().addAll(textfield,label);
 		primaryStage.setScene(scene);
+
+		
 		MimicHandler mh = new MimicHandler(label,textfield);
 		textfield.setOnKeyReleased(mh);
 		primaryStage.show();

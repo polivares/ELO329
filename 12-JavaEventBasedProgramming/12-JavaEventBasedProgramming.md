@@ -1,5 +1,6 @@
 ---
 marp: true
+paginate: true
 ---
 
 # ELO329 - Diseño y Programación Orientados a Objetos

@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui version="4.0">
+ <class>SubscriberWindow</class>
+ <widget class="QMainWindow" name="SubscriberWindow">
+  <property name="geometry">
+   <rect><x>0</x><y>0</y><width>400</width><height>150</height></rect>
+  </property>
+  <property name="windowTitle">
+   <string>Suscriptor de Video</string>
+  </property>
+  <widget class="QWidget" name="centralwidget">
+   <widget class="QPushButton" name="openVideoButton">
+    <property name="geometry">
+     <rect><x>100</x><y>50</y><width>200</width><height>40</height></rect>
+    </property>
+    <property name="text">
+     <string>Esperando URL...</string>
+    </property>
+   </widget>
+  </widget>
+ </widget>
+ <resources/>
+ <connections/>
+</ui>

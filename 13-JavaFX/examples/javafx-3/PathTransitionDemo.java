@@ -23,12 +23,12 @@ public class PathTransitionDemo extends Application {
         pane.getChildren().addAll(circle, rectangle);
 // Create a path transition
         PathTransition pt = new PathTransition();
-        pt.setDuration(Duration.millis(500));
+        pt.setDuration(Duration.millis(4000));
         pt.setPath(circle);
         pt.setNode(rectangle);
         pt.setOrientation(PathTransition.OrientationType.ORTHOGONAL_TO_TANGENT);
         pt.setCycleCount(Timeline.INDEFINITE);
-        pt.setAutoReverse(false);
+        pt.setAutoReverse(true);
 	pt.setInterpolator(Interpolator.LINEAR);
         pt.play(); // Start animation
         circle.setOnMousePressed(e -> pt.pause());

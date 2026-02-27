@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui version="4.0">
+ <class>PublisherWindow</class>
+ <widget class="QMainWindow" name="PublisherWindow">
+  <property name="geometry">
+   <rect><x>0</x><y>0</y><width>400</width><height>150</height></rect>
+  </property>
+  <property name="windowTitle">
+   <string>Publicador de Video</string>
+  </property>
+  <widget class="QWidget" name="centralwidget">
+   <widget class="QLineEdit" name="urlLineEdit">
+    <property name="geometry">
+     <rect><x>20</x><y>20</y><width>360</width><height>30</height></rect>
+    </property>
+   </widget>
+   <widget class="QPushButton" name="publishButton">
+    <property name="geometry">
+     <rect><x>140</x><y>70</y><width>120</width><height>30</height></rect>
+    </property>
+    <property name="text">
+     <string>Publicar</string>
+    </property>
+   </widget>
+  </widget>
+ </widget>
+ <resources/>
+ <connections/>
+</ui>

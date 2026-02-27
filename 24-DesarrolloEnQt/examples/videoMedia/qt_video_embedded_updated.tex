@@ -1,0 +1,120 @@
+
+\documentclass[12pt]{article}
+\usepackage[utf8]{inputenc}
+\usepackage{graphicx}
+\usepackage{float}
+\usepackage{listings}
+\usepackage{xcolor}
+\usepackage{geometry}
+\geometry{margin=1in}
+
+\title{Aplicación en Qt5: Publicador y Suscriptor de URL de Video Embebido}
+\author{Curso ELO329 - Diseño y Programación Orientados a Objetos}
+\date{}
+
+\definecolor{codebg}{rgb}{0.95,0.95,0.95}
+\lstset{
+  backgroundcolor=\color{codebg},
+  basicstyle=\ttfamily\small,
+  breaklines=true,
+  frame=single,
+  postbreak=\mbox{\textcolor{red}{$\hookrightarrow$}\space},
+  language=C++,
+  showstringspaces=false
+}
+
+\begin{document}
+
+\maketitle
+
+\section*{Descripción General}
+
+Se presenta una aplicación Qt5 basada en el patrón \textbf{Publisher/Subscriber} que permite publicar y visualizar URLs de videos. A diferencia de la versión básica que abre los videos en un navegador externo, esta implementación embebe el video directamente en la aplicación utilizando \texttt{QWebEngineView}.
+
+\begin{itemize}
+  \item \textbf{Publicador}: El usuario ingresa una URL de video en un campo de texto y la publica mediante un botón.
+  \item \textbf{Suscriptor}: Recibe la última URL publicada y al hacer clic en el botón, reproduce el video embebido dentro de una ventana Qt.
+\end{itemize}
+
+\section*{Código Fuente Principal}
+
+\subsection*{subscriberwindow.h}
+\begin{lstlisting}
+class SubscriberWindow : public QMainWindow {
+    Q_OBJECT
+public:
+    explicit SubscriberWindow(QWidget *parent = nullptr);
+    ~SubscriberWindow();
+
+public slots:
+    void updateUrl(const QString &url);
+
+private slots:
+    void on_openVideoButton_clicked();
+
+private:
+    Ui::SubscriberWindow *ui;
+    QString currentUrl;
+    QWebEngineView *videoView;
+};
+\end{lstlisting}
+
+\subsection*{subscriberwindow.cpp}
+\begin{lstlisting}
+#include "subscriberwindow.h"
+#include "ui_subscriberwindow.h"
+#include <QWebEngineView>
+
+SubscriberWindow::SubscriberWindow(QWidget *parent)
+    : QMainWindow(parent)
+    , ui(new Ui::SubscriberWindow) {
+    ui->setupUi(this);
+    currentUrl = "";
+    ui->openVideoButton->setEnabled(false);
+    videoView = nullptr;
+}
+
+SubscriberWindow::~SubscriberWindow() {
+    delete ui;
+}
+
+void SubscriberWindow::updateUrl(const QString &url) {
+    currentUrl = url;
+    ui->openVideoButton->setText("Ver video");
+    ui->openVideoButton->setEnabled(true);
+}
+
+void SubscriberWindow::on_openVideoButton_clicked() {
+    if (!currentUrl.isEmpty()) {
+        if (!videoView) {
+            videoView = new QWebEngineView(this);
+            videoView->resize(800, 600);
+        }
+        videoView->load(QUrl(currentUrl));
+        videoView->show();
+    }
+}
+\end{lstlisting}
+
+\subsection*{QtVideoPublisher.pro}
+\begin{lstlisting}[language=bash]
+QT += core gui widgets webenginewidgets
+
+TARGET = QtVideoPublisher
+TEMPLATE = app
+
+SOURCES += Sources/main.cpp \
+           Sources/publisherwindow.cpp \
+           Sources/subscriberwindow.cpp
+
+HEADERS += Headers/publisherwindow.h \
+           Headers/subscriberwindow.h
+
+FORMS += Forms/publisherwindow.ui \
+         Forms/subscriberwindow.ui
+\end{lstlisting}
+
+\noindent
+\textbf{Nota:} Se ha agregado \texttt{webenginewidgets} al archivo \texttt{.pro} para habilitar el uso de \texttt{QWebEngineView}.
+
+\end{document}

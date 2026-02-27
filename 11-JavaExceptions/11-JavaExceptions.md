@@ -15,8 +15,12 @@ Patricio Olivares
 
 - Los lenguajes orientados a objeto han buscado la forma de facilitar la programación de las **condiciones de error** en un programa.
 - Muchas cosas pueden generar excepciones (o errores): Errores de hardware (falla de disco), de programa (acceso fuera de rango en arreglo), apertura de archivo inexistente, ingreso de un depósito negativo, probabilidad mayor que 1, etc.
+
+---
+# Excepciones (o errores)
+
 - En lugar de mezclar el código asociado a la lógica principal del programa con el tratamiento de excepciones, lo cual dificulta la claridad de la tarea principal del programa, los lenguajes orientados a objetos como **Java y C++ disponen un mecanismo de excepciones que separa la parte fundamental del código (mayor % de los casos) de las situaciones de error**.
-- U**na excepción es un evento que ocurre durante la ejecución de un programa que rompe el flujo normal de ejecución**. Cuando se habla de excepciones nos referimos a un evento excepcional.
+- **Una excepción es un evento que ocurre durante la ejecución de un programa que rompe el flujo normal de ejecución**. Cuando se habla de excepciones nos referimos a un evento excepcional.
 
 ---
 # Ejemplo: Motivación
@@ -134,9 +138,13 @@ public static void doio (InputStream in, OutputStream out)throws IOException {
     throw t;
 }
 ```
+
+---
+# Reenviando Excepciones: dos formas
 - En este caso, el método envía una excepción - que aquí corresponde al mismo objeto capturado - por lo tanto, se debe declarar en la cláusula `throws`.
 - Si un método usa la sentencia `throw` debe indicarlo en su declaración con la cláusula `throws`.
 - En este caso es responsabilidad de quien llame a `doio()` atrapar la excepción o relanzarla. Así esto suba hasta posiblemente llegar al método main.
+
 ---
 # Creación de tus propias excepciones
 - Siempre es posible lanzar alguna excepción de las ya definidas en Java (`IOException` por ejemplo).
@@ -171,11 +179,15 @@ public Fraction (int n, int d) throws ZeroDenominatorException {
 - Ej:
     - Si hay más de un archivo que se abre, basta con un código para capturar tal caso.
     - Si se lanzan excepciones que son todas subclases de una base, basta con capturar la base para manejar cualquiera de sus instancias derivadas.
+
 ---
 # Cosas a tomar en cuenta
 
 - Las excepciones consumen tiempo, no usarlas cuando hay alternativas mejores, ejemplo (verlo en casa) `ExceptionalTest.java`
 - Agrupar el manejo de varias excepciones en un único `try`...es bueno. 
+
+---
+# Cosas a tomar en cuenta
 - En cada caso evaluar si es mejor atrapar la excepción o reenviarla a código llamador
     - Ejemplo: Quien llame a `readStuff` puede manejar la excepción de mejor forma que aquí.
 ```java
