@@ -13,48 +13,59 @@ Patricio Olivares
 Al finalizar este curso se espera que sea capaz de:
 - Reconocer las características de los lenguajes orientados a objetos, definiendo cada una de ellas y reconociendo sus contextos de uso.
 - Utilizar los lenguajes Java y C++ sobre distintos entornos en la creación de soluciones de software de propósito general.
-- Utilizar metodologíasde desarrollo y herramientas que las apoyen, aplicadas a proyectos.
+- Utilizar metodologías de desarrollo y herramientas que las apoyen, aplicadas a proyectos.
 
 ---
 # Contenidos
 - Conceptos de Orientación a Objetos
 - Java
-    - Introducción a Java
-    - Objetos, clases, herencia, clases abstractas, clase Object
-    - Interfaces, clases anidadas
+    - Introducción y fundamentos del lenguaje Java
+    - Clases y objetos, herencia, ligado dinámico y clases abstractas
+    - Clase Object, ArrayList y Class
+    - Interfaces, clases anidadas y clonación
+    - Expresiones lambda
     - Programación basada en eventos
     - Programación de interfaces gráficas: JavaFX
+
+---
+
+# Contenidos
+- Java
     - Manejo de excepciones
-    - Generación de paquetes y documentación Javadoc Layout
+    - Paquetes y documentación (Javadoc)
     - Introducción a la programación en Android
 
 ---
 # Contenidos
 - C++
+    - Introducción a C++
     - Clases en C++
-    - Sobrecarga de operadores
-    - Calificador Friend y Static
+    - Constantes, referencias y assert
+    - Calificadores friend y static
     - Manejo de punteros y memoria dinámica
-    - Herencia y ligado dinámico
+
+---
+# Contenidos
+- C++
+    - Sobrecarga de operadores
+    - Herencia, polimorfismo y métodos virtuales
     - Excepciones
-    - Programación genérica: templates, vectores y listas
-    - Algoritmos genéricos
-    - Patrones de diseño
     - Programación en Qt
 
 ---
 # Contenidos
 - Ingeniería de software
-    - Proceso de desarrollo de software
-    - Desarrollo iterativo e incremental
-    - Casos de uso y certificación de empresas desarrolladoras
+    - Proceso y metodologías de desarrollo de software
+    - Desarrollo iterativo e incremental (tradicional y ágil)
+    - Requerimientos: casos de uso e historias de usuario
+    - Modelamiento UML y herramientas de apoyo (Jira, Visual Paradigm)
 
 ---
 # Evaluación del curso
 - Individual
     - 2 certámenes $(C)$, $65\%$
-        - $\frac{1}{3}$ teórico
-        - $\frac{2}{3}$ práctico
+        - $70\%$ teórico
+        - $30\%$ práctico
 - Grupal
     - Proyecto $(P)$, $10\%$
     - 3 Tareas $(T)$, $25\%$
@@ -77,10 +88,10 @@ Al realizar la evaluación en este curso, cada estudiante adhiere a las siguient
 - El código desarrollado en las actividades grupales debe ser de autoría de los integrantes del grupo.
 - No participar en actividad alguna que pretenda mejorar deshonestamente su resultado, o para mejorar o perjudicar los resultados de otros.
 - No publicar sus respuestas durante el desarrollo de las evaluaciones por ningún medio.
-- Subir sus respuestas del certamen a la plataforma Aula USM con su propio login institucional.
 
 ---
 # Código de ética
+- Subir sus respuestas del certamen a la plataforma Aula USM con su propio login institucional.
 - No permitir que nadie más use su nombre de usuario y/o contraseña institucional.
 
 # Ante una falta
