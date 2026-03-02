@@ -3,7 +3,7 @@ marp: true
 paginate: true
 ---
 # ELO329 - Diseño y Programación Orientados a Objetos
-## Introducción a Java
+## 02 - Introducción a Java
 Agustín González
 Patricio Olivares
 
@@ -11,41 +11,63 @@ Patricio Olivares
 
 # Plataforma recomendada: Linux
 
-En esta asignatura se trabajará con **Linux** como plataforma principal. Si bien el funcionamiento de Java permite ejecutarse en diversas plataformas (Windows, macOS), se recomienda el uso de Linux para garantizar la compatibilidad y coherencia en el desarrollo y ejecución de programas.
+En esta asignatura trabajaremos con **Linux** como entorno base.
 
-**Importante:** Los estudiantes que opten por trabajar en otras plataformas serán responsables de asegurar que su código funcione correctamente en un entorno Linux.
+¿Por qué?
+- Mismo entorno para todos.
+- Menos problemas de compatibilidad.
+- Flujo de trabajo más simple para compilar y ejecutar.
+
+Si usas Windows o macOS, debes asegurarte que tu código funciona en Linux.
 
 ---
+
 # Plataforma recomendada: Linux
-## **Alternativas para usar Linux en otros entornos**
-- **WSL (Windows Subsystem for Linux)**: Permite ejecutar un entorno Linux dentro de Windows sin necesidad de una máquina virtual.
-- **Máquinas Virtuales**: Usando software como VirtualBox o VMware, se puede instalar una distribución de Linux y ejecutarla dentro de otro sistema operativo.
-- **Arranque dual (Dual Boot)**: Instalación de Linux en una partición del disco junto con otro sistema operativo.
-- **Live USB**: Uso de una distribución Linux desde una unidad USB sin necesidad de instalación en el disco.
----
+## Alternativas para usar Linux en otros entornos
 
-# Java: Motivaciones  de su origen
+- **WSL (Windows Subsystem for Linux)**: Linux dentro de Windows.
+- **Máquina virtual**: Linux usando VirtualBox o VMware.
+- **Dual boot**: Linux instalado junto a otro sistema operativo.
+- **Live USB**: arrancar Linux desde pendrive sin instalar.
 
-Por los años 90 los desarrolladores de Java buscaban ofrecer lenguaje independiente de:
-- Tipo de computador
-- Sistema operativo
-- Sistema de ventanas (win32, Motif, etc.)
-- Obs: Cuando Java aparece (1995) no existía Qt (herramienta para desarrollar software gráfico en C++ para múltiples plataformas).
-
----
-# Java: Motivaciones  de su origen
-- C++ permite el uso de punteros, muy útiles para electrónicos y telemáticos, pues corresponde a direcciones de la memoria física. Como éstos generaban dificultades para muchos, Java los elude.
-- Java hace un manejo de memoria que libera al programador de esa preocupación. No hay "fugas de memoria" o "memory leaks"
+Idea práctica: elige la opción que te permita practicar cómodo y constante.
 
 ---
 
-# Independiente del Computador y del Sistema Operativo
+# Java: Motivaciones de su origen
 
-- Esto se logra por el uso de una *Máquina Virtual Java (Java Virtual Machine).*
-- Una máquina virtual es una abstracción de una máquina real. La máquina virtual es generada por software.
-- ¿Han usado programas emuladores de consolas de juegos?
-- ¿Han usado programas emuladores de PC dentro de un PC? Así podemos tener varios Sistemas operativos corriendo concurrentemente en la misma máquina. Ej: Vmware, VirtualBox.
-- Este concepto también es aplicable a sistemas operativos donde es posible crear la apariencia de tener varias máquinas independientes (jaulas o jails)
+En los años 90, Java nace con un objetivo claro:
+**escribir una vez y correr en distintas plataformas**.
+
+Se buscaba independencia de:
+- tipo de computador,
+- sistema operativo,
+- sistema gráfico.
+
+Nota histórica: cuando Java apareció (1995), Qt todavía no existía.
+
+---
+
+# Java: Motivaciones de su origen
+
+Comparado con C++:
+- C++ permite punteros explícitos (muy poderosos, pero delicados).
+- Java evita esa complejidad para el programador inicial.
+- Java también automatiza gran parte del manejo de memoria.
+
+Resultado: menos errores clásicos al comenzar (por ejemplo, fugas de memoria).
+
+---
+
+# Independiente del computador y del sistema operativo
+
+Esto se logra gracias a la **JVM (Java Virtual Machine)**.
+
+- Una máquina virtual es una "máquina por software".
+- Abstrae el hardware real.
+- Permite ejecutar el mismo programa Java en distintos equipos.
+
+Analogía: como correr el mismo juego en distintas consolas usando un emulador.
 
 ---
 
@@ -53,9 +75,11 @@ Por los años 90 los desarrolladores de Java buscaban ofrecer lenguaje independi
 
 ![JVM](imagenes/jvm.svg)
 
-- Para cada combinación hardware+SO se ha creado una máquina virtual Java (es un programa más).
-- Un programa compilado Java (byte code) corre "igual" en todas las máquinas virtuales.
-- Ver: [https://www.oracle.com/java/](https://www.oracle.com/java/).
+- Para cada combinación hardware + sistema operativo existe una JVM.
+- El programa Java compilado a **bytecode** corre sobre esa JVM.
+- Por eso, el mismo `.class` puede ejecutarse en plataformas distintas.
+
+Referencia: [https://www.oracle.com/java/](https://www.oracle.com/java/)
 
 ---
 
@@ -65,98 +89,126 @@ Por los años 90 los desarrolladores de Java buscaban ofrecer lenguaje independi
 ---
 
 # Edición, compilación y ejecución
-Compilación y ejecución de un programa Java en Linux se realiza por **consola de comandos**:
+
+En Linux, el flujo base por consola es:
+- editar,
+- compilar,
+- ejecutar.
+
+Es clave dominar esto antes de usar IDE.
 
 ---
 
 # Edición, compilación y ejecución
 ## Actividad
-1. **Escribir el código fuente en un archivo `.java`**
-   ```bash
-   nano FirstSample.java
-   ```
-   Luego, copiar el siguiente código (no es necesario entenderlo, cópienlo con fe!):
-   ```java
-   public class FirstSample {
-       public static void main(String[] args) {
-           System.out.println("¡Hola, Java!");
-       }
-   }
-   ```
-   Guardar y salir (`CTRL + X`, `Y`, `Enter`).
+
+1. Crear archivo fuente `.java`
+```bash
+nano FirstSample.java
+```
+
+Pegar este código:
+```java
+public class FirstSample {
+    public static void main(String[] args) {
+        System.out.println("¡Hola, Java!");
+    }
+}
+```
+
+Guardar y salir: `CTRL + X`, luego `Y`, luego `Enter`.
 
 ---
 
 # Edición, compilación y ejecución
 
-2. **Compilar el código fuente**
-   ```bash
-   javac FirstSample.java
-   ```
-   Esto generará un archivo `FirstSample.class` con el código en *bytecode*.
+2. Compilar el archivo fuente:
+```bash
+javac FirstSample.java
+```
+
+Esto genera `FirstSample.class` (bytecode).
 
 ---
 
 # Edición, compilación y ejecución
 
-3. **Ejecutar el programa**
-   ```bash
-   java FirstSample
-   ```
-   **Salida esperada:**
-   ```
-   ¡Hola, Java!
-   ```
+3. Ejecutar el programa:
+```bash
+java FirstSample
+```
+
+Salida esperada:
+```text
+¡Hola, Java!
+```
 
 ---
 
 # Trabajando con Java
-## Definición e instalación de Java y Editor de texto.
-- Java
-  - Descargar desde: [https://www.oracle.com/java/technologies/javase/jdk21-archive-downloads.html](https://www.oracle.com/java/technologies/javase/jdk21-archive-downloads.html)
-  - Puede instalar `open-jdk` (proyecto open source del JDK de Java) en distribuciones Linux basadas en Debian por consola:
-    ```bash
-    sudo apt install openjdk-21-jdk
-    ```
-  - Verificar instalación con:
-    ```bash
-    java --version
-    ```
+## Definición e instalación de Java
+
+- Descargar JDK desde Oracle:
+  [https://www.oracle.com/java/technologies/javase/jdk21-archive-downloads.html](https://www.oracle.com/java/technologies/javase/jdk21-archive-downloads.html)
+- En Debian/Ubuntu puedes instalar OpenJDK por consola:
+```bash
+sudo apt install openjdk-21-jdk
+```
+- Verificar versión:
+```bash
+java --version
+```
+
 ---
 
 # Trabajando con Java
-## Definición e instalación de Editor de texto.
-- Editor:
-    - Para cosas simples usar alguno de su conveniencia; por ejemplo, [sublime](https://www.sublimetext.com/index2).
-    
-    
+## Editor de texto
+
+Para programas simples, puedes usar un editor liviano (por ejemplo, Sublime).
+
+Objetivo mínimo del editor:
+- buena indentación,
+- resaltado de sintaxis,
+- edición cómoda.
+
+Evitar editores muy básicos como Notepad.
+
 ---
-# Trabajando con Java    
-- Una vez que sabe cómo compilar y correr usando la consola, se sugiere usar un ambientes integrados de Desarrollo (IDE) como:
-    - [Visual Studio Code](https://code.visualstudio.com/)
-    - [Intelli J](https://www.jetbrains.com/es-es/idea/)
-    - [jGrasp](https://www.jgrasp.org/)
-    - [Eclipse](https://eclipseide.org/)
-    - [Netbeans](https://netbeans.apache.org/front/main/index.html)
-- Un buen editor debería ayudar a indentar su programa, colorear palabras reservadas, etc.
-- **No usar notepad** o similar.
+
+# Trabajando con Java
+
+Un buen IDE acelera trabajo y reduce errores de formato.
+IDEs recomendados:
+- [Visual Studio Code](https://code.visualstudio.com/)
+- [IntelliJ IDEA](https://www.jetbrains.com/es-es/idea/)
+- [jGrasp](https://www.jgrasp.org/)
+- [Eclipse](https://eclipseide.org/)
+- [NetBeans](https://netbeans.apache.org/front/main/index.html)
 
 ---
 
 # Configuración recomendada: IntelliJ + JDK 21 + Linux
 
-Para facilitar el desarrollo en Java, se recomienda utilizar la siguiente configuración:
+Configuración sugerida para la asignatura:
+- **Sistema operativo:** Linux
+- **JDK:** 21 (LTS)
+- **IDE:** IntelliJ IDEA o VSCode
 
-- **Sistema Operativo:** Linux
-- **JDK:** Java Development Kit (JDK) 21 (versión LTS-Long Term Support)
-- **IDE:** IntelliJ IDEA
-
-**Nota:** Configuraciones con otros IDEs como *NetBeans*, *Eclipse*, o *Visual Studio Code* también son posibles, pero la compatibilidad y soporte en la asignatura se enfocará en la configuración recomendada.
+También se puede trabajar con otros IDEs, pero esta combinación es la referencia del curso.
 
 ---
 
 # Componentes de Java
 
-- Java tiene muchas [componentes](http://manuales.elo.utfsm.cl/manuales/jdk-8u40/index.html) (componentes para Java versión 8)
-- Nosotros usaremos algunas, tales como : java, javac, javadoc, JavaFX, etc.
-- Para aprender más, ver [Documentación JDK 21](https://docs.oracle.com/en/java/javase/21/) (Java Development Kit).
+Java incluye varias herramientas.
+
+Algunas que usaremos:
+- `java` (ejecución),
+- `javac` (compilación),
+- `javadoc` (documentación),
+- JavaFX (interfaces gráficas).
+
+Referencias:
+- [Documentación JDK 21](https://docs.oracle.com/en/java/javase/21/)
+- [Índice de componentes JDK 8](http://manuales.elo.utfsm.cl/manuales/jdk-8u40/index.html)
+
