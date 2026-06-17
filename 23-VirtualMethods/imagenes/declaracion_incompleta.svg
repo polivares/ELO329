@@ -1,0 +1,69 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1100" height="620" viewBox="0 0 1100 620" role="img" aria-labelledby="title desc">
+  <title id="title">Declaración incompleta de clases</title>
+  <desc id="desc">Una dependencia circular entre A, B y C se resuelve reemplazando una inclusión por class A y un puntero o referencia.</desc>
+  <defs>
+    <marker id="arrow-orange" markerWidth="14" markerHeight="12" refX="12" refY="6" orient="auto" markerUnits="strokeWidth">
+      <path d="M2 2 L12 6 L2 10 Z" fill="#c77700"/>
+    </marker>
+    <marker id="arrow-blue" markerWidth="14" markerHeight="12" refX="12" refY="6" orient="auto" markerUnits="strokeWidth">
+      <path d="M2 2 L12 6 L2 10 Z" fill="#2f6f9f"/>
+    </marker>
+    <marker id="arrow-gray" markerWidth="14" markerHeight="12" refX="12" refY="6" orient="auto" markerUnits="strokeWidth">
+      <path d="M2 2 L12 6 L2 10 Z" fill="#6b7280"/>
+    </marker>
+    <style>
+      .title { font: 700 28px Arial, sans-serif; fill: #12394f }
+      .head { font: 700 21px Arial, sans-serif; fill: #12394f }
+      .code { font: 16px "DejaVu Sans Mono", Consolas, monospace; fill: #243447 }
+      .text { font: 16px Arial, sans-serif; fill: #243447 }
+      .label { font: 700 14px Arial, sans-serif; fill: #243447 }
+    </style>
+  </defs>
+
+  <rect width="1100" height="620" fill="#ffffff"/>
+  <text x="550" y="48" text-anchor="middle" class="title">Declaración incompleta para cortar un ciclo</text>
+
+  <rect x="70" y="95" width="440" height="62" fill="#fff3df" stroke="#c77700" stroke-width="2"/>
+  <text x="290" y="135" text-anchor="middle" class="head">Dependencia circular</text>
+
+  <rect x="130" y="235" width="150" height="80" fill="#ffffff" stroke="#c77700" stroke-width="2"/>
+  <text x="205" y="266" text-anchor="middle" class="head">A.h</text>
+  <text x="205" y="294" text-anchor="middle" class="text">contiene B</text>
+  <rect x="335" y="235" width="150" height="80" fill="#ffffff" stroke="#c77700" stroke-width="2"/>
+  <text x="410" y="266" text-anchor="middle" class="head">B.h</text>
+  <text x="410" y="294" text-anchor="middle" class="text">contiene C</text>
+  <rect x="232" y="405" width="150" height="80" fill="#ffffff" stroke="#c77700" stroke-width="2"/>
+  <text x="307" y="436" text-anchor="middle" class="head">C.h</text>
+  <text x="307" y="464" text-anchor="middle" class="text">necesita A</text>
+
+  <path d="M280 275 L320 275" fill="none" stroke="#c77700" stroke-width="3" marker-end="url(#arrow-orange)"/>
+  <text x="300" y="258" text-anchor="middle" class="label">include</text>
+  <path d="M410 315 L410 360 L330 360 L330 405" fill="none" stroke="#c77700" stroke-width="3" marker-end="url(#arrow-orange)"/>
+  <text x="426" y="356" class="label">include</text>
+  <path d="M232 445 L105 445 L105 275 L130 275" fill="none" stroke="#c77700" stroke-width="3" marker-end="url(#arrow-orange)"/>
+  <text x="118" y="376" class="label">include</text>
+
+  <rect x="590" y="95" width="440" height="62" fill="#e8f2fb" stroke="#2f6f9f" stroke-width="2"/>
+  <text x="810" y="135" text-anchor="middle" class="head">Con forward declaration</text>
+
+  <rect x="645" y="235" width="160" height="80" fill="#ffffff" stroke="#2f6f9f" stroke-width="2"/>
+  <text x="725" y="266" text-anchor="middle" class="head">A.h</text>
+  <text x="725" y="294" text-anchor="middle" class="text">incluye B.h</text>
+  <rect x="875" y="235" width="160" height="80" fill="#ffffff" stroke="#2f6f9f" stroke-width="2"/>
+  <text x="955" y="266" text-anchor="middle" class="head">B.h</text>
+  <text x="955" y="294" text-anchor="middle" class="text">incluye C.h</text>
+  <rect x="765" y="390" width="180" height="105" fill="#e8f2fb" stroke="#2f6f9f" stroke-width="2"/>
+  <text x="855" y="421" text-anchor="middle" class="head">C.h</text>
+  <text x="855" y="451" text-anchor="middle" class="code">class A</text>
+  <text x="855" y="478" text-anchor="middle" class="code">A* o A&amp;</text>
+
+  <path d="M805 275 L860 275" fill="none" stroke="#2f6f9f" stroke-width="3" marker-end="url(#arrow-blue)"/>
+  <text x="832" y="258" text-anchor="middle" class="label">include</text>
+  <path d="M955 315 L955 352 L855 352 L855 390" fill="none" stroke="#2f6f9f" stroke-width="3" marker-end="url(#arrow-blue)"/>
+  <text x="963" y="348" class="label">include</text>
+  <path d="M765 442 L705 442 L705 335 L725 335 L725 315" fill="none" stroke="#6b7280" stroke-width="3" stroke-dasharray="9 7" marker-end="url(#arrow-gray)"/>
+  <text x="662" y="395" class="label">solo puntero</text>
+  <text x="662" y="415" class="label">o referencia</text>
+
+  <text x="550" y="570" text-anchor="middle" class="text">La declaración incompleta evita incluir A.h cuando basta conocer que la clase existe.</text>
+</svg>

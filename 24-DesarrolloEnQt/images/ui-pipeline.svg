@@ -1,0 +1,63 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1100" height="620" viewBox="0 0 1100 620" role="img" aria-labelledby="title desc">
+  <title id="title">Pipeline de una interfaz Qt Widgets</title>
+  <desc id="desc">Flujo entre Qt Designer, archivos .ui, uic, clases C++ y CMake para construir una aplicación Qt Widgets.</desc>
+  <defs>
+    <style>
+      .title { font: 700 28px Arial, sans-serif; fill: #12394f; }
+      .label { font: 700 20px Arial, sans-serif; fill: #12394f; }
+      .text { font: 16px Arial, sans-serif; fill: #273444; }
+      .code { font: 15px "DejaVu Sans Mono", Consolas, monospace; fill: #1f2937; }
+      .box { rx: 10; ry: 10; stroke-width: 2.2; }
+      .design { fill: #e7f5ef; stroke: #1f9d66; }
+      .generated { fill: #eaf3fb; stroke: #2f6f9f; }
+      .cpp { fill: #fff4df; stroke: #b7791f; }
+      .build { fill: #f3f4f6; stroke: #6b7280; }
+      .arrow { stroke: #405466; stroke-width: 3; fill: none; marker-end: url(#arrow); }
+      .subarrow { stroke: #6b7280; stroke-width: 2.5; fill: none; marker-end: url(#arrow-gray); stroke-dasharray: 8 6; }
+    </style>
+    <marker id="arrow" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="8" markerHeight="8" orient="auto-start-reverse">
+      <path d="M 0 0 L 10 5 L 0 10 z" fill="#405466"/>
+    </marker>
+    <marker id="arrow-gray" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="8" markerHeight="8" orient="auto-start-reverse">
+      <path d="M 0 0 L 10 5 L 0 10 z" fill="#6b7280"/>
+    </marker>
+  </defs>
+
+  <rect width="1100" height="620" fill="#ffffff"/>
+  <text x="550" y="44" text-anchor="middle" class="title">De Qt Designer a una ventana ejecutable</text>
+
+  <rect x="70" y="120" width="210" height="130" class="box design"/>
+  <text x="175" y="155" text-anchor="middle" class="label">Qt Designer</text>
+  <text x="175" y="188" text-anchor="middle" class="text">edición visual</text>
+  <text x="175" y="217" text-anchor="middle" class="code">mainwindow.ui</text>
+
+  <path d="M280 185 H390" class="arrow"/>
+
+  <rect x="390" y="120" width="210" height="130" class="box generated"/>
+  <text x="495" y="155" text-anchor="middle" class="label">uic</text>
+  <text x="495" y="188" text-anchor="middle" class="text">genera código C++</text>
+  <text x="495" y="217" text-anchor="middle" class="code">ui_mainwindow.h</text>
+
+  <path d="M600 185 H710" class="arrow"/>
+
+  <rect x="710" y="120" width="320" height="130" class="box cpp"/>
+  <text x="870" y="155" text-anchor="middle" class="label">Clase MainWindow</text>
+  <text x="870" y="188" text-anchor="middle" class="code">mainwindow.h / .cpp</text>
+  <text x="870" y="217" text-anchor="middle" class="code">ui-&gt;setupUi(this)</text>
+
+  <rect x="180" y="355" width="290" height="120" class="box generated"/>
+  <text x="325" y="390" text-anchor="middle" class="label">moc</text>
+  <text x="325" y="423" text-anchor="middle" class="text">lee Q_OBJECT</text>
+  <text x="325" y="452" text-anchor="middle" class="code">signals / slots</text>
+
+  <rect x="630" y="355" width="290" height="120" class="box build"/>
+  <text x="775" y="390" text-anchor="middle" class="label">CMake + Qt 6</text>
+  <text x="775" y="423" text-anchor="middle" class="text">compila y enlaza</text>
+  <text x="775" y="452" text-anchor="middle" class="code">Qt6::Widgets</text>
+
+  <path d="M870 250 C870 305 775 305 775 355" class="arrow"/>
+  <path d="M870 250 C870 315 325 315 325 355" class="subarrow"/>
+  <path d="M470 415 H630" class="arrow"/>
+
+  <text x="550" y="540" text-anchor="middle" class="text">El archivo .ui describe apariencia; la clase C++ decide comportamiento.</text>
+</svg>

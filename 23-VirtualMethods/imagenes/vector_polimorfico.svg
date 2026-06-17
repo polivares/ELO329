@@ -1,0 +1,61 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1100" height="620" viewBox="0 0 1100 620" role="img" aria-labelledby="title desc">
+  <title id="title">Vector de punteros a motores</title>
+  <desc id="desc">Un vector de punteros a CMotor contiene direcciones a motores eléctricos y motores a gasolina.</desc>
+  <defs>
+    <marker id="arrow" markerWidth="14" markerHeight="12" refX="12" refY="6" orient="auto" markerUnits="strokeWidth">
+      <path d="M2 2 L12 6 L2 10 Z" fill="#2f6f9f"/>
+    </marker>
+    <style>
+      .title { font: 700 28px Arial, sans-serif; fill: #12394f }
+      .head { font: 700 20px Arial, sans-serif; fill: #12394f }
+      .code { font: 16px "DejaVu Sans Mono", Consolas, monospace; fill: #243447 }
+      .text { font: 16px Arial, sans-serif; fill: #243447 }
+    </style>
+  </defs>
+
+  <rect width="1100" height="620" fill="#ffffff"/>
+  <text x="550" y="48" text-anchor="middle" class="title">vector&lt;CMotor*&gt; como colección polimórfica</text>
+
+  <rect x="70" y="100" width="210" height="410" fill="#e8f2fb" stroke="#2f6f9f" stroke-width="2"/>
+  <text x="175" y="135" text-anchor="middle" class="head">vMotors</text>
+
+  <rect x="105" y="170" width="140" height="58" fill="#ffffff" stroke="#2f6f9f" stroke-width="2"/>
+  <text x="175" y="193" text-anchor="middle" class="head">[0]</text>
+  <text x="175" y="217" text-anchor="middle" class="code">CMotor*</text>
+  <rect x="105" y="250" width="140" height="58" fill="#ffffff" stroke="#2f6f9f" stroke-width="2"/>
+  <text x="175" y="273" text-anchor="middle" class="head">[1]</text>
+  <text x="175" y="297" text-anchor="middle" class="code">CMotor*</text>
+  <rect x="105" y="330" width="140" height="58" fill="#ffffff" stroke="#2f6f9f" stroke-width="2"/>
+  <text x="175" y="353" text-anchor="middle" class="head">[2]</text>
+  <text x="175" y="377" text-anchor="middle" class="code">CMotor*</text>
+  <rect x="105" y="410" width="140" height="58" fill="#ffffff" stroke="#2f6f9f" stroke-width="2"/>
+  <text x="175" y="433" text-anchor="middle" class="head">[3]</text>
+  <text x="175" y="457" text-anchor="middle" class="code">CMotor*</text>
+
+  <rect x="420" y="125" width="250" height="94" fill="#e8f7ef" stroke="#15935b" stroke-width="2"/>
+  <text x="545" y="155" text-anchor="middle" class="head">CElectricMotor</text>
+  <text x="545" y="184" text-anchor="middle" class="code">ID=10000</text>
+  <text x="545" y="208" text-anchor="middle" class="code">Voltage=110</text>
+
+  <rect x="780" y="220" width="250" height="94" fill="#fff3df" stroke="#c77700" stroke-width="2"/>
+  <text x="905" y="250" text-anchor="middle" class="head">CGasMotor</text>
+  <text x="905" y="279" text-anchor="middle" class="code">ID=20000</text>
+  <text x="905" y="303" text-anchor="middle" class="code">Cylinders=4</text>
+
+  <rect x="420" y="315" width="250" height="94" fill="#e8f7ef" stroke="#15935b" stroke-width="2"/>
+  <text x="545" y="345" text-anchor="middle" class="head">CElectricMotor</text>
+  <text x="545" y="374" text-anchor="middle" class="code">ID=30000</text>
+  <text x="545" y="398" text-anchor="middle" class="code">Voltage=220</text>
+
+  <rect x="780" y="410" width="250" height="94" fill="#fff3df" stroke="#c77700" stroke-width="2"/>
+  <text x="905" y="440" text-anchor="middle" class="head">CGasMotor</text>
+  <text x="905" y="469" text-anchor="middle" class="code">ID=40000</text>
+  <text x="905" y="493" text-anchor="middle" class="code">Cylinders=2</text>
+
+  <path d="M245 199 L405 172" fill="none" stroke="#2f6f9f" stroke-width="3" marker-end="url(#arrow)"/>
+  <path d="M245 279 C450 279 580 267 765 267" fill="none" stroke="#2f6f9f" stroke-width="3" marker-end="url(#arrow)"/>
+  <path d="M245 359 L405 362" fill="none" stroke="#2f6f9f" stroke-width="3" marker-end="url(#arrow)"/>
+  <path d="M245 439 C450 439 580 457 765 457" fill="none" stroke="#2f6f9f" stroke-width="3" marker-end="url(#arrow)"/>
+
+  <text x="550" y="565" text-anchor="middle" class="text">Un solo tipo de puntero permite apuntar a objetos de clases distintas.</text>
+</svg>

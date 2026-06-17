@@ -1,0 +1,53 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1100" height="620" viewBox="0 0 1100 620" role="img" aria-labelledby="title desc">
+  <title id="title">Tipo declarado y tipo real</title>
+  <desc id="desc">Un puntero y una referencia declarados como CMotor acceden a un objeto real de tipo CElectricMotor.</desc>
+  <defs>
+    <marker id="arrow" markerWidth="14" markerHeight="12" refX="12" refY="6" orient="auto" markerUnits="strokeWidth">
+      <path d="M2 2 L12 6 L2 10 Z" fill="#43566b"/>
+    </marker>
+    <style>
+      .title { font: 700 28px Arial, sans-serif; fill: #12394f }
+      .head { font: 700 20px Arial, sans-serif; fill: #12394f }
+      .code { font: 17px "DejaVu Sans Mono", Consolas, monospace; fill: #243447 }
+      .text { font: 16px Arial, sans-serif; fill: #243447 }
+      .label { font: 700 15px Arial, sans-serif; fill: #43566b }
+    </style>
+  </defs>
+
+  <rect width="1100" height="620" fill="#ffffff"/>
+  <text x="550" y="48" text-anchor="middle" class="title">Tipo declarado y tipo real</text>
+
+  <rect x="85" y="140" width="210" height="92" fill="#e8f2fb" stroke="#2f6f9f" stroke-width="2"/>
+  <text x="190" y="176" text-anchor="middle" class="head">pM</text>
+  <text x="190" y="208" text-anchor="middle" class="code">CMotor*</text>
+
+  <rect x="85" y="365" width="210" height="92" fill="#e8f2fb" stroke="#2f6f9f" stroke-width="2"/>
+  <text x="190" y="401" text-anchor="middle" class="head">motor</text>
+  <text x="190" y="433" text-anchor="middle" class="code">CMotor&amp;</text>
+
+  <rect x="405" y="247" width="250" height="88" fill="#fff3df" stroke="#c77700" stroke-width="2"/>
+  <text x="530" y="279" text-anchor="middle" class="head">interfaz visible</text>
+  <text x="530" y="311" text-anchor="middle" class="code">CMotor</text>
+
+  <rect x="765" y="115" width="270" height="390" fill="#f5f7fa" stroke="#6b7280" stroke-width="2"/>
+  <text x="900" y="150" text-anchor="middle" class="head">objeto real</text>
+  <text x="900" y="181" text-anchor="middle" class="code">CElectricMotor</text>
+
+  <rect x="805" y="220" width="190" height="90" fill="#e8f2fb" stroke="#2f6f9f" stroke-width="2"/>
+  <text x="900" y="255" text-anchor="middle" class="head">parte base</text>
+  <text x="900" y="287" text-anchor="middle" class="code">m_sID</text>
+
+  <rect x="805" y="355" width="190" height="90" fill="#e8f7ef" stroke="#15935b" stroke-width="2"/>
+  <text x="900" y="390" text-anchor="middle" class="head">parte derivada</text>
+  <text x="900" y="422" text-anchor="middle" class="code">m_nVoltage</text>
+
+  <path d="M295 186 C395 184 455 206 515 247" fill="none" stroke="#43566b" stroke-width="3" marker-end="url(#arrow)"/>
+  <path d="M295 411 C395 411 455 365 515 335" fill="none" stroke="#43566b" stroke-width="3" marker-end="url(#arrow)"/>
+  <path d="M655 291 C705 291 715 291 750 291" fill="none" stroke="#43566b" stroke-width="3" marker-end="url(#arrow)"/>
+
+  <text x="385" y="170" class="label">apunta a</text>
+  <text x="390" y="445" class="label">nombra</text>
+  <text x="704" y="270" text-anchor="middle" class="label">mismo objeto</text>
+
+  <text x="550" y="575" text-anchor="middle" class="text">El tipo declarado restringe la interfaz. El tipo real importa para las llamadas virtuales.</text>
+</svg>

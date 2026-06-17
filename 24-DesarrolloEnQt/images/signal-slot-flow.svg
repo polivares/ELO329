@@ -1,0 +1,60 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1100" height="620" viewBox="0 0 1100 620" role="img" aria-labelledby="title desc">
+  <title id="title">Flujo signal-slot en Qt</title>
+  <desc id="desc">Un objeto emisor emite una señal, QObject::connect la dirige a un slot receptor y el receptor ejecuta su reacción.</desc>
+  <defs>
+    <style>
+      .title { font: 700 28px Arial, sans-serif; fill: #12394f; }
+      .label { font: 700 21px Arial, sans-serif; fill: #12394f; }
+      .text { font: 16px Arial, sans-serif; fill: #273444; }
+      .smalltext { font: 14px Arial, sans-serif; fill: #273444; }
+      .code { font: 13.5px "DejaVu Sans Mono", Consolas, monospace; fill: #1f2937; }
+      .box { rx: 12; ry: 12; stroke-width: 2.5; }
+      .sender { fill: #e7f5ef; stroke: #1f9d66; }
+      .receiver { fill: #eaf3fb; stroke: #2f6f9f; }
+      .event { fill: #fff4df; stroke: #b7791f; }
+      .note { fill: #f3f4f6; stroke: #6b7280; }
+      .arrow { stroke: #405466; stroke-width: 3; fill: none; marker-end: url(#arrow); }
+      .signal { stroke: #1f9d66; stroke-width: 4; fill: none; marker-end: url(#arrow-green); }
+    </style>
+    <marker id="arrow" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="8" markerHeight="8" orient="auto-start-reverse">
+      <path d="M 0 0 L 10 5 L 0 10 z" fill="#405466"/>
+    </marker>
+    <marker id="arrow-green" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="8" markerHeight="8" orient="auto-start-reverse">
+      <path d="M 0 0 L 10 5 L 0 10 z" fill="#1f9d66"/>
+    </marker>
+  </defs>
+
+  <rect width="1100" height="620" fill="#ffffff"/>
+  <text x="550" y="44" text-anchor="middle" class="title">Signals y slots: objetos acoplados por contrato, no por dependencia directa</text>
+
+  <rect x="60" y="115" width="280" height="270" class="box sender"/>
+  <text x="200" y="153" text-anchor="middle" class="label">Emisor</text>
+  <text x="200" y="185" text-anchor="middle" class="text">TempConverter</text>
+  <line x1="92" y1="212" x2="308" y2="212" stroke="#1f9d66" stroke-width="2"/>
+  <text x="92" y="248" class="code">signals:</text>
+  <text x="92" y="278" class="code">tempCelsiusChanged(double)</text>
+  <text x="92" y="308" class="code">tempFahrenheitChanged(double)</text>
+
+  <rect x="430" y="145" width="240" height="100" class="box event"/>
+  <text x="550" y="181" text-anchor="middle" class="label">Conexión</text>
+  <text x="550" y="211" text-anchor="middle" class="code">QObject::connect(...)</text>
+
+  <rect x="760" y="115" width="280" height="270" class="box receiver"/>
+  <text x="900" y="153" text-anchor="middle" class="label">Receptor</text>
+  <text x="900" y="185" text-anchor="middle" class="text">Widget / Dial / Label</text>
+  <line x1="792" y1="212" x2="1008" y2="212" stroke="#2f6f9f" stroke-width="2"/>
+  <text x="792" y="248" class="code">public slots:</text>
+  <text x="792" y="278" class="code">setValue(int)</text>
+  <text x="792" y="308" class="code">display(double)</text>
+
+  <path d="M355 195 H415" class="signal"/>
+  <text x="385" y="178" text-anchor="middle" class="smalltext">signal</text>
+  <path d="M685 195 H745" class="signal"/>
+  <text x="715" y="178" text-anchor="middle" class="smalltext">slot</text>
+  <text x="550" y="415" text-anchor="middle" class="smalltext">Al emitirse una señal, Qt invoca cada slot conectado con firma compatible.</text>
+
+  <rect x="185" y="450" width="730" height="105" class="box note"/>
+  <text x="550" y="484" text-anchor="middle" class="label">Propiedad clave para diseño OO</text>
+  <text x="550" y="513" text-anchor="middle" class="text">El emisor no necesita saber cuántos receptores existen ni qué harán.</text>
+  <text x="550" y="540" text-anchor="middle" class="text">La firma de la señal y del slot define el contrato.</text>
+</svg>

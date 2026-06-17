@@ -1,0 +1,58 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1100" height="620" viewBox="0 0 1100 620" role="img" aria-labelledby="title desc">
+  <title id="title">Ligado estático y ligado dinámico</title>
+  <desc id="desc">La misma llamada a Display se resuelve por tipo declarado sin virtual y por tipo real con virtual.</desc>
+  <defs>
+    <marker id="arrow-blue" markerWidth="14" markerHeight="12" refX="12" refY="6" orient="auto" markerUnits="strokeWidth">
+      <path d="M2 2 L12 6 L2 10 Z" fill="#2f6f9f"/>
+    </marker>
+    <marker id="arrow-orange" markerWidth="14" markerHeight="12" refX="12" refY="6" orient="auto" markerUnits="strokeWidth">
+      <path d="M2 2 L12 6 L2 10 Z" fill="#c77700"/>
+    </marker>
+    <marker id="arrow-green" markerWidth="14" markerHeight="12" refX="12" refY="6" orient="auto" markerUnits="strokeWidth">
+      <path d="M2 2 L12 6 L2 10 Z" fill="#15935b"/>
+    </marker>
+    <style>
+      .title { font: 700 28px Arial, sans-serif; fill: #12394f }
+      .head { font: 700 21px Arial, sans-serif; fill: #12394f }
+      .code { font: 17px "DejaVu Sans Mono", Consolas, monospace; fill: #243447 }
+      .text { font: 16px Arial, sans-serif; fill: #243447 }
+      .label { font: 700 15px Arial, sans-serif; fill: #243447 }
+    </style>
+  </defs>
+
+  <rect width="1100" height="620" fill="#ffffff"/>
+  <text x="550" y="48" text-anchor="middle" class="title">Una llamada, dos decisiones posibles</text>
+
+  <rect x="75" y="95" width="440" height="64" fill="#fff3df" stroke="#c77700" stroke-width="2"/>
+  <text x="295" y="136" text-anchor="middle" class="head">Sin métodos virtuales</text>
+
+  <rect x="585" y="95" width="440" height="64" fill="#e8f2fb" stroke="#2f6f9f" stroke-width="2"/>
+  <text x="805" y="136" text-anchor="middle" class="head">Con métodos virtuales</text>
+
+  <rect x="135" y="220" width="320" height="62" fill="#ffffff" stroke="#6b7280" stroke-width="2"/>
+  <text x="295" y="259" text-anchor="middle" class="code">pM-&gt;Display()</text>
+
+  <rect x="135" y="430" width="320" height="62" fill="#fff3df" stroke="#c77700" stroke-width="2"/>
+  <text x="295" y="469" text-anchor="middle" class="code">CMotor::Display()</text>
+
+  <path d="M295 282 L295 415" fill="none" stroke="#c77700" stroke-width="3" marker-end="url(#arrow-orange)"/>
+  <text x="315" y="350" class="label">usa tipo declarado</text>
+  <text x="295" y="535" text-anchor="middle" class="text">La llamada queda en la base.</text>
+
+  <rect x="645" y="220" width="320" height="62" fill="#ffffff" stroke="#6b7280" stroke-width="2"/>
+  <text x="805" y="259" text-anchor="middle" class="code">pM-&gt;Display()</text>
+
+  <rect x="645" y="345" width="320" height="70" fill="#e8f2fb" stroke="#2f6f9f" stroke-width="2"/>
+  <text x="805" y="375" text-anchor="middle" class="head">despacho dinámico</text>
+  <text x="805" y="399" text-anchor="middle" class="text">consulta el tipo real del objeto</text>
+
+  <rect x="645" y="475" width="320" height="62" fill="#e8f7ef" stroke="#15935b" stroke-width="2"/>
+  <text x="805" y="514" text-anchor="middle" class="code">CElectricMotor::Display()</text>
+
+  <path d="M805 282 L805 333" fill="none" stroke="#2f6f9f" stroke-width="3" marker-end="url(#arrow-blue)"/>
+  <path d="M805 415 L805 463" fill="none" stroke="#15935b" stroke-width="3" marker-end="url(#arrow-green)"/>
+  <text x="825" y="448" class="label">usa tipo real</text>
+  <text x="805" y="572" text-anchor="middle" class="text">La implementación elegida es la derivada.</text>
+
+  <line x1="550" y1="90" x2="550" y2="555" stroke="#d0d7de" stroke-width="2"/>
+</svg>

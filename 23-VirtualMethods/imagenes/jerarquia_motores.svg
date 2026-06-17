@@ -1,0 +1,47 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1100" height="620" viewBox="0 0 1100 620" role="img" aria-labelledby="title desc">
+  <title id="title">Jerarquía de motores</title>
+  <desc id="desc">CMotor define la interfaz común. CElectricMotor y CGasMotor heredan de CMotor y agregan estado propio.</desc>
+  <defs>
+    <style>
+      .title { font: 700 28px Arial, sans-serif; fill: #12394f }
+      .head { font: 700 21px Arial, sans-serif; fill: #12394f }
+      .text { font: 16px Arial, sans-serif; fill: #243447 }
+      .code { font: 16px "DejaVu Sans Mono", Consolas, monospace; fill: #243447 }
+      .label { font: 700 15px Arial, sans-serif; fill: #155e75 }
+      .note { font: 16px Arial, sans-serif; fill: #243447 }
+    </style>
+  </defs>
+
+  <rect width="1100" height="620" fill="#ffffff"/>
+  <text x="550" y="48" text-anchor="middle" class="title">Jerarquía de motores</text>
+
+  <rect x="375" y="95" width="350" height="150" fill="#e8f2fb" stroke="#2f6f9f" stroke-width="2"/>
+  <text x="550" y="132" text-anchor="middle" class="head">CMotor</text>
+  <line x1="405" y1="150" x2="695" y2="150" stroke="#2f6f9f" stroke-width="2"/>
+  <text x="415" y="180" class="code">- m_sID : string</text>
+  <text x="415" y="211" class="code">+ get_ID()</text>
+  <text x="555" y="211" class="code">+ virtual Input()</text>
+  <text x="415" y="236" class="code">+ virtual Display()</text>
+
+  <rect x="140" y="370" width="340" height="155" fill="#e8f7ef" stroke="#15935b" stroke-width="2"/>
+  <text x="310" y="407" text-anchor="middle" class="head">CElectricMotor</text>
+  <line x1="170" y1="425" x2="450" y2="425" stroke="#15935b" stroke-width="2"/>
+  <text x="170" y="455" class="code">- m_nVoltage : double</text>
+  <text x="170" y="486" class="code">+ get_Voltage()</text>
+  <text x="170" y="516" class="code">+ Input()</text>
+
+  <rect x="620" y="370" width="340" height="155" fill="#fff3df" stroke="#c77700" stroke-width="2"/>
+  <text x="790" y="407" text-anchor="middle" class="head">CGasMotor</text>
+  <line x1="650" y1="425" x2="930" y2="425" stroke="#c77700" stroke-width="2"/>
+  <text x="650" y="455" class="code">- m_nCylinders : int</text>
+  <text x="650" y="486" class="code">+ Input()</text>
+  <text x="650" y="516" class="code">+ Display()</text>
+
+  <path d="M310 370 L550 320 L790 370" fill="none" stroke="#2f6f9f" stroke-width="3"/>
+  <path d="M550 320 L550 271" fill="none" stroke="#2f6f9f" stroke-width="3"/>
+  <polygon points="550,245 528,271 572,271" fill="#ffffff" stroke="#2f6f9f" stroke-width="3"/>
+  <text x="392" y="306" text-anchor="middle" class="label">herencia pública</text>
+  <text x="708" y="306" text-anchor="middle" class="label">herencia pública</text>
+
+  <text x="550" y="585" text-anchor="middle" class="note">Interfaz común en la base, comportamiento especializado en las derivadas.</text>
+</svg>

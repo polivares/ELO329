@@ -12,6 +12,7 @@ qt_add_executable(QPropertyAnimationCircle
     animatedrect.cpp
     animatedrect.h
     main.cpp
+
 )
 
 target_link_libraries(QPropertyAnimationCircle
